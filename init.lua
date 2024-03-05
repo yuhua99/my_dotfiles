@@ -19,7 +19,7 @@ return {
               auto_quoting = true,
               mappings = {
                 i = {
-                  ["<Tab>"] = require("telescope-live-grep-args.actions").quote_prompt(),
+                  ["<Tab>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " -g *." }),
                   ["<C-i>"] = require("telescope-live-grep-args.actions").quote_prompt({ postfix = " --iglob " }),
                 },
               },
