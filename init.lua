@@ -33,7 +33,14 @@ return {
   },
   mappings = {
     n = {
-      ["<leader>fw"] = { function() require("telescope").extensions.live_grep_args.live_grep_args() end, desc = "Find words" }
+      ["<leader>fw"] = { function() require("telescope").extensions.live_grep_args.live_grep_args() end, desc = "Find words" },
+      ["<leader>fW"] = { function()
+          require("telescope").extensions.live_grep_args.live_grep_args {
+            default_text = "--no-ignore ",
+          }
+        end,
+        desc = "Find words in all files",
+      },
     }
   },
 }
