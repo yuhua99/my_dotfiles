@@ -4,7 +4,6 @@ return {
     "AstroNvim/astrocommunity",
     { import = "astrocommunity.colorscheme.catppuccin" },
     -- language packs
-    { import = "astrocommunity.pack.cpp"},
     { import = "astrocommunity.pack.go"},
     -- community plugins
     { import = "astrocommunity.completion.copilot-lua"},
