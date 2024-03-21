@@ -29,6 +29,11 @@ return {
         require("telescope").load_extension("live_grep_args")
       end,
     },
+    -- other plugins
+    {
+      "ibhagwan/smartyank.nvim",
+      event = "User AstroFile",
+    }
   },
   mappings = {
     n = {
