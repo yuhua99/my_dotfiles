@@ -18,7 +18,7 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 #### Clone the repository
 
 ```shell
-git clone https://github.com/yuhua99/astronvim_config ~/.config/nvim
+git clone git@github.com:yuhua99/astronvim_config.git ~/.config/nvim && \
 nvim --headless -c 'quitall'
 ```
 
