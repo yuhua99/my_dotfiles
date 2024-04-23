@@ -68,6 +68,11 @@ return {
           function() require("telescope").extensions.live_grep_args.live_grep_args() end,
           desc = "Find words(args)",
         },
+        -- hot key for :CopilotChatToggle command
+        ["<leader>a"] = {
+          function() vim.cmd ":CopilotChatToggle" end,
+          desc = "Copilot Chat",
+        },
       },
       t = {
         -- setting a mapping to false will disable it
