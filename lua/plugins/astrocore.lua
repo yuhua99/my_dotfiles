@@ -68,15 +68,20 @@ return {
           function() require("telescope").extensions.live_grep_args.live_grep_args() end,
           desc = "Find words(args)",
         },
-        -- hot key for copilot chat
-        ["cc"] = {
+        -- menu for copilot chat
+        ["cc"] = { desc = "copilot chat" },
+        ["ccq"] = {
           function()
             local input = vim.fn.input "Quick Chat: "
             if input ~= "" then
               require("CopilotChat").ask(input, { selection = require("CopilotChat.select").buffer })
             end
           end,
-          desc = "Copilot Chat",
+          desc = "Quick chat",
+        },
+        ["cct"] = {
+          function() require("CopilotChat").toggle() end,
+          desc = "Toggle Chat",
         },
       },
       t = {
