@@ -73,6 +73,9 @@ return {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
       },
+      v = {
+        o = { ":normal! ggVG<CR>", desc = "Select all" },
+      },
     },
     autocmds = {
       -- disable alpha autostart
