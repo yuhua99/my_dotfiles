@@ -1,0 +1,61 @@
+[user]
+	name = YOUR_NAME
+	email = YOUR_EMAIL
+[core]
+	filemode = true
+	editor = nvim
+	pager = delta | less --tabs=4 -RF
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+	df = diff
+	pick = cherry-pick
+	fp = format-patch
+	la = log --graph --decorate --pretty=oneline --abbrev-commit --all
+	ll = log --graph --decorate --pretty=oneline --abbrev-commit
+	lf = log --stat --decorate --format=fuller abbrev-commit
+	sa = stash apply
+	sd = stash drop
+	sl = stash list
+	sp = stash pop
+[color]
+	ui = auto
+	diff = auto
+	status = auto
+	branch = auto
+	log = auto
+[push]
+	default = simple
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true    # use n and N to move between diff sections
+	line-numbers = true
+	features = catppuccin-mocha
+[merge]
+  conflictstyle = diff3
+[diff]
+  colorMoved = default
+[delta "catppuccin-mocha"]
+	blame-palette = "#1e1e2e #181825 #11111b #313244 #45475a"
+	commit-decoration-style = "box"
+	dark = true
+	file-decoration-style = "#cdd6f4"
+	file-style = "#cdd6f4"
+	hunk-header-decoration-style = "box"
+	hunk-header-file-style = "bold"
+	hunk-header-line-number-style = "bold #a6adc8"
+	hunk-header-style = "file line-number syntax"
+	line-numbers = true
+	line-numbers-left-style = "#6c7086"
+	line-numbers-minus-style = "bold #f38ba8"
+	line-numbers-plus-style = "bold #a6e3a1"
+	line-numbers-right-style = "#6c7086"
+	line-numbers-zero-style = "#6c7086"
+	minus-emph-style = "bold syntax #c88a98"
+	minus-style = "syntax #63394c"
+	plus-emph-style = "bold syntax #93bd93"
+	plus-style = "syntax #40604b"
+
