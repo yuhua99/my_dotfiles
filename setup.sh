@@ -54,21 +54,13 @@ CopyToHome()
 
 AskOption()
 {
-  if [[ -n "$1" ]]; then
-    task=$1
-  else
-    echo "[error] Task should be provided!!"
-  fi
-
-  if [[ -n $2 ]]; then
-    target_path=$2
-  else
-    target_path="$HOME"
-  fi
+  local task=$1
+  local target_path=${2:-"$HOME"}
 
   echo "Please choise an option:"
   echo "  [1] Apply $task"
   echo "  [2] Show diff"
+  echo "  [3] Copy $task to here"
   printf "Enter your choice: "
   read option
   case $option in
@@ -81,6 +73,14 @@ AskOption()
         delta $current_path/$task $target_path/$task
       else
         echo "delta command not found. Please install delta to use this option."
+      fi
+      ;;
+    3)
+      if [[ -e $target_path/$task ]]; then
+        cp -r $target_path/$task $current_path/
+        echo "Copy $target_path/$task to $current_path/ successfully!!"
+      else
+        echo "$target_path/$task doesn't exists!!"
       fi
       ;;
     *)
