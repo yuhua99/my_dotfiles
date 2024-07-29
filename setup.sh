@@ -22,6 +22,7 @@ nvim() {
 
 tmux() {
   AskOption ".tmux.conf"
+  echo "Remember to install tpm and run prefix + I to install plugins!"
 }
 
 ################
