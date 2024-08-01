@@ -1,7 +1,6 @@
 # My dotfiles
----
 
-this is my dotfiles containing
+#### this is my dotfiles containing
 1. neovim
 2. tmux
 3. git
