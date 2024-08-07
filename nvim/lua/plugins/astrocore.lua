@@ -57,6 +57,10 @@ return {
           end,
           desc = "Pick to close",
         },
+        ["<leader>bt"] = {
+          function() vim.cmd "tabnew" end,
+          desc = "New tab",
+        },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },

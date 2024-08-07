@@ -4,9 +4,10 @@
 
 ---@type LazySpec
 return {
-  "AstroNvim/astrocommunity",
+  "astronvim/astrocommunity",
   { import = "astrocommunity.pack.lua" },
   -- import/override with your plugins folder
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.syntax.vim-sandwich" },
 }
