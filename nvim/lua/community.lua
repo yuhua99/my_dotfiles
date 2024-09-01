@@ -10,4 +10,5 @@ return {
   { import = "astrocommunity.colorscheme.catppuccin" },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.syntax.vim-sandwich" },
+  { import = "astrocommunity.game.leetcode-nvim" },
 }
