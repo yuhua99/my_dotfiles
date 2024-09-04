@@ -57,10 +57,6 @@ return {
           end,
           desc = "Pick to close",
         },
-        ["<leader>bt"] = {
-          function() vim.cmd "tabnew" end,
-          desc = "New tab",
-        },
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
@@ -68,7 +64,7 @@ return {
         -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
         -- replace telescope with live_grep_args
         -- the hot key should be <leader>fw but somehow it only works occasionally, maybe this doesn't 100% overwrite the original keymap
-        ["<leader>fg"] = {
+        ["<leader>fs"] = {
           function() require("telescope").extensions.live_grep_args.live_grep_args() end,
           desc = "Find words(args)",
         },
