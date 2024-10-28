@@ -24,6 +24,7 @@ nvim() {
 tmux() {
   AskOption ".tmux.conf"
   echo "Remember to install tpm and run prefix + I to install plugins!"
+  echo "Remember to copy the tmux-popup.sh to ~/.tmux/"
 }
 
 alacritty() {
