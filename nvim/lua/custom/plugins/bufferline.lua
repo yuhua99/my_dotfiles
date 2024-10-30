@@ -9,6 +9,7 @@ return {
     { '<leader>bo', '<Cmd>BufferLineCloseOthers<CR>', desc = '[B]uffer delete [O]thers' },
     { '<leader>br', '<Cmd>BufferLineCloseRight<CR>', desc = '[B]uffer delete to the [R]ight' },
     { '<leader>bl', '<Cmd>BufferLineCloseLeft<CR>', desc = '[B]uffer delete to the [L]eft' },
+    { '<leader>bc', '<Cmd>bdelete<CR>', desc = '[B]uffer [C]lose' },
     { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
     { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
     { '[b', '<cmd>BufferLineMovePrev<cr>', desc = 'Move buffer prev' },
