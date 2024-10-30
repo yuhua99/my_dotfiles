@@ -10,10 +10,10 @@ return {
     { '<leader>br', '<Cmd>BufferLineCloseRight<CR>', desc = '[B]uffer delete to the [R]ight' },
     { '<leader>bl', '<Cmd>BufferLineCloseLeft<CR>', desc = '[B]uffer delete to the [L]eft' },
     { '<leader>bc', '<Cmd>bdelete<CR>', desc = '[B]uffer [C]lose' },
-    { '<S-h>', '<cmd>BufferLineCyclePrev<cr>', desc = 'Prev Buffer' },
-    { '<S-l>', '<cmd>BufferLineCycleNext<cr>', desc = 'Next Buffer' },
-    { '[b', '<cmd>BufferLineMovePrev<cr>', desc = 'Move buffer prev' },
-    { ']b', '<cmd>BufferLineMoveNext<cr>', desc = 'Move buffer next' },
+    { '<S-h>', '<Cmd>BufferLineCyclePrev<CR>', desc = 'Prev Buffer' },
+    { '<S-l>', '<Cmd>BufferLineCycleNext<CR>', desc = 'Next Buffer' },
+    { '[b', '<Cmd>BufferLineMovePrev<CR>', desc = 'Move buffer prev' },
+    { ']b', '<Cmd>BufferLineMoveNext<CR>', desc = 'Move buffer next' },
   },
   opts = {
     options = {
