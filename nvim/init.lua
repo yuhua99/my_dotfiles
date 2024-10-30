@@ -163,6 +163,7 @@ vim.opt.scrolloff = 10
 
 -- For bufferline to work
 vim.opt.termguicolors = true
+vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -879,6 +880,15 @@ require('lazy').setup({
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
     end,
+    specs = {
+      'akinsho/bufferline.nvim',
+      optional = true,
+      opts = function(_, opts)
+        if (vim.g.colors_name or ''):find 'catppuccin' then
+          opts.highlights = require('catppuccin.groups.integrations.bufferline').get()
+        end
+      end,
+    },
   },
 
   -- Highlight todo, notes, etc in comments
