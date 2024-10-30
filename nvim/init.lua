@@ -201,6 +201,11 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- Utility function to create an autocommand group
+local function augroup(name)
+  return vim.api.nvim_create_augroup(name, { clear = true })
+end
+
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
 --  See `:help vim.highlight.on_yank()`
@@ -209,6 +214,31 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
     vim.highlight.on_yank()
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup 'close_with_q',
+  -- Add any other pattern you want to close with `q`
+  pattern = {
+    'help',
+    'lspinfo',
+    'checkhealth',
+  },
+  callback = function(event)
+    -- Mark the buffer as unlisted to prevent it from appearing in buffer lists
+    vim.bo[event.buf].buflisted = false
+    -- Schedule a function to set up a keymap for 'q' to close the buffer
+    vim.schedule(function()
+      vim.keymap.set('n', 'q', function()
+        vim.cmd 'close'
+        pcall(vim.api.nvim_buf_delete, event.buf, { force = true })
+      end, {
+        buffer = event.buf,
+        silent = true,
+        desc = 'Close buffer',
+      })
+    end)
   end,
 })
 
