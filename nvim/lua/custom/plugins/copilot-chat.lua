@@ -145,32 +145,32 @@ return {
           local actions = require 'CopilotChat.actions'
           require('CopilotChat.integrations.telescope').pick(actions.prompt_actions())
         end,
-        desc = '[A]i [P]rompt actions',
+        desc = '[P]rompt actions',
       },
       {
         '<leader>ap',
         ":lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions({selection = require('CopilotChat.select').visual}))<CR>",
         mode = 'x',
-        desc = '[A]i [P]rompt actions',
+        desc = '[P]rompt actions',
       },
       -- Code related commands
-      { '<leader>ae', '<cmd>CopilotChatExplain<cr>', desc = '[A]i [E]xplain code' },
-      { '<leader>au', '<cmd>CopilotChatTests<cr>', desc = '[A]i [U]nit tests' },
-      { '<leader>ar', '<cmd>CopilotChatReview<cr>', desc = '[A]i [R]eview code' },
-      { '<leader>aR', '<cmd>CopilotChatRefactor<cr>', desc = '[A]i [R]efactor code' },
-      { '<leader>an', '<cmd>CopilotChatBetterNamings<cr>', desc = '[A]i better [N]aming' },
+      { '<leader>ae', '<cmd>CopilotChatExplain<cr>', desc = '[E]xplain code' },
+      { '<leader>au', '<cmd>CopilotChatTests<cr>', desc = '[U]nit tests' },
+      { '<leader>ar', '<cmd>CopilotChatReview<cr>', desc = '[R]eview code' },
+      { '<leader>aR', '<cmd>CopilotChatRefactor<cr>', desc = '[R]efactor code' },
+      { '<leader>an', '<cmd>CopilotChatBetterNamings<cr>', desc = 'better [N]aming' },
       -- Chat with Copilot in visual mode
       {
         '<leader>av',
         ':CopilotChatVisual',
         mode = 'x',
-        desc = '[A]i Open in [V]ertical split',
+        desc = 'Open in [V]ertical split',
       },
       {
         '<leader>ai',
         ':CopilotChatInline<cr>',
         mode = 'x',
-        desc = '[A]i [I]nline chat',
+        desc = '[I]nline chat',
       },
       -- Custom input for CopilotChat
       {
@@ -181,18 +181,18 @@ return {
             vim.cmd('CopilotChat ' .. input)
           end
         end,
-        desc = '[A]i [A]sk input',
+        desc = '[A]sk input',
       },
       -- Generate commit message based on the git diff
       {
         '<leader>am',
         '<cmd>CopilotChatCommit<cr>',
-        desc = '[A]i generate commit [M]essage for all changes',
+        desc = 'generate commit [M]essage for all changes',
       },
       {
         '<leader>aM',
         '<cmd>CopilotChatCommitStaged<cr>',
-        desc = '[A]i generate commit [M]essage for staged changes',
+        desc = 'generate commit [M]essage for staged changes',
       },
       -- Quick chat with Copilot
       {
@@ -203,16 +203,16 @@ return {
             vim.cmd('CopilotChatBuffer ' .. input)
           end
         end,
-        desc = '[A]i [Q]uick chat',
+        desc = '[Q]uick chat',
       },
       -- Debug
-      { '<leader>ad', '<cmd>CopilotChatDebugInfo<cr>', desc = '[A]i [D]ebug Info' },
+      { '<leader>ad', '<cmd>CopilotChatDebugInfo<cr>', desc = '[D]ebug Info' },
       -- Fix the issue with diagnostic
-      { '<leader>af', '<cmd>CopilotChatFixDiagnostic<cr>', desc = '[A]i [F]ix Diagnostic' },
+      { '<leader>af', '<cmd>CopilotChatFixDiagnostic<cr>', desc = '[F]ix Diagnostic' },
       -- Clear buffer and chat history
-      { '<leader>ac', '<cmd>CopilotChatReset<cr>', desc = '[A]i [C]lear buffer and chat history' },
+      { '<leader>ac', '<cmd>CopilotChatReset<cr>', desc = '[C]lear buffer and chat history' },
       -- Toggle Copilot Chat Vsplit
-      { '<leader>at', '<cmd>CopilotChatToggle<cr>', desc = '[A]i [T]oggle' },
+      { '<leader>at', '<cmd>CopilotChatToggle<cr>', desc = '[T]oggle' },
     },
   },
 }

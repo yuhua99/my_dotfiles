@@ -97,6 +97,10 @@ vim.g.have_nerd_font = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- Set filetype to `bigfile` for files larger than 1.5 MB
+-- Only vim syntax will be enabled (with the correct filetype)
+vim.g.bigfile_size = 1024 * 1024 * 1.5 -- 1.5 MB
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 -- NOTE: You can change these options as you wish!
@@ -164,6 +168,8 @@ vim.opt.scrolloff = 10
 -- For bufferline to work
 vim.opt.termguicolors = true
 vim.opt.sessionoptions = { 'buffers', 'curdir', 'tabpages', 'winsize', 'help', 'globals', 'skiprtp', 'folds' }
+
+-- vim.opt.tabstop = 2 -- Number of spaces tabs count for
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
