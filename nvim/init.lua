@@ -230,6 +230,7 @@ vim.api.nvim_create_autocmd('FileType', {
     'help',
     'lspinfo',
     'checkhealth',
+    'gitsigns-blame',
   },
   callback = function(event)
     -- Mark the buffer as unlisted to prevent it from appearing in buffer lists
