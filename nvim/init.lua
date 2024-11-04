@@ -249,15 +249,6 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
-vim.api.nvim_create_autocmd('VimEnter', {
-  nested = true,
-  callback = function()
-    if vim.fn.argc() == 0 then
-      require('persistence').load { last = true }
-    end
-  end,
-})
-
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
@@ -497,6 +488,10 @@ require('lazy').setup({
           if vim.fn.argc() == 1 and vim.fn.isdirectory(vim.fn.argv()[1]) ~= 0 then
             vim.defer_fn(function()
               require('telescope.builtin').find_files()
+            end, 0)
+          elseif vim.fn.argc() == 0 then
+            vim.defer_fn(function()
+              require('persistence').load { last = true }
             end, 0)
           end
         end,
@@ -982,9 +977,6 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-context',
-    },
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
