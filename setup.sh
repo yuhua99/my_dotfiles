@@ -14,26 +14,26 @@ tasks=(
 ################
 
 gitconfig() {
-  AskOption ".gitconfig"
+  CopyToHome ".gitconfig"
   echo "Remember to change the name and email in .gitconfig file!"
 }
 
 nvim() {
-  AskOption "nvim" "$HOME/.config"
+  CopyToHome "nvim" "$HOME/.config"
 }
 
 tmux() {
-  AskOption ".tmux.conf"
+  CopyToHome ".tmux.conf"
   echo "Remember to install tpm and run prefix + I to install plugins!"
   echo "Remember to copy the tmux-popup.sh to ~/.tmux/"
 }
 
 alacritty() {
-  AskOption "alacritty" "$HOME/.config"
+  CopyToHome "alacritty" "$HOME/.config"
 }
 
 nushell() {
-  AskOption "nushell" "$HOME/.config"
+  CopyToHome "nushell" "$HOME/.config"
 }
 
 ################
@@ -43,60 +43,31 @@ nushell() {
 current_path=$(pwd)
 
 CopyToHome() {
-  target=$1
-  target_path=$2
+  local target=$1
+  local target_path=${2:-"$HOME"}
 
   if [[ -e $target_path/$target ]]; then
     echo "File $target_path/$target exists!!"
-    printf "Do you want to overwrite it? [y/n]: "
+    printf "Do you want to proceed with backup? [y/n]: "
     read answer
     if [[ $answer == "y" ]]; then
-      cp -r $current_path/$target $target_path/
-      echo "Overwrite $target_path/$target successfully!!"
+      if mv $target_path/$target "$target_path/$target-bak"; then
+        echo "File backup to $target_path/$target-bak successfully!!"
+      else
+        echo "Failed to backup $target_path/$target"
+        echo "Aborting..."
+        return 1
+      fi
     else
       echo "Skip $target"
     fi
-  else
-    cp -r $current_path/$target $target_path/
-    echo "Copy $target to $target_path/ successfully!!"
   fi
-}
 
-AskOption() {
-  local task=$1
-  local target_path=${2:-"$HOME"}
-
-  echo "Please choise an option:"
-  echo "  [1] Apply $task"
-  echo "  [2] Show diff"
-  echo "  [3] Copy $task to here"
-  printf "Enter your choice: "
-  read option
-  case $option in
-  1)
-    CopyToHome $task $target_path
-    ;;
-  2)
-    if command -v delta >/dev/null 2>&1; then
-      echo "Diff between $current_path/$task and $target_path/$task:"
-      delta $current_path/$task $target_path/$task
-    else
-      echo "delta command not found. Please install delta to use this option."
-    fi
-    ;;
-  3)
-    if [[ -e $target_path/$task ]]; then
-      cp -r $target_path/$task $current_path/
-      echo "Copy $target_path/$task to $current_path/ successfully!!"
-    else
-      echo "$target_path/$task doesn't exists!!"
-    fi
-    ;;
-  *)
-    echo "Invalid option!!"
-    exit 1
-    ;;
-  esac
+  if ln -s "$current_path/$target" "$target_path/"; then
+    echo "Link $target to $target_path/ successfully!!"
+  else
+    echo "Failed to link $target to $target_path/" >&2
+  fi
 }
 
 AskTask() {
@@ -119,11 +90,5 @@ AskTask() {
     exit 1
   fi
 }
-
-# If the help option is provided, display help and exit
-if [[ $1 == "-h" ]] || [[ $1 == "--help" ]]; then
-  displayHelp
-  exit 0
-fi
 
 AskTask $1
