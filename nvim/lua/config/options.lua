@@ -8,3 +8,4 @@ opt.clipboard = "unnamedplus"
 opt.wrap = true
 
 vim.g.snacks_animate = false
+vim.g.root_spec = { "cwd" } -- prevent from unexpectedly changing the root
