@@ -6,6 +6,7 @@ local opt = vim.opt
 
 opt.clipboard = "unnamedplus"
 opt.wrap = true
+opt.completeopt:append("popup") -- to better support copilot-chat.nvim
 
 vim.g.snacks_animate = false
 vim.g.root_spec = { "cwd" } -- prevent from unexpectedly changing the root
