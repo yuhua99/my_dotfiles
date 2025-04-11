@@ -30,6 +30,7 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "folke/noice.nvim", -- For status update
+      "folke/edgy.nvim",
     },
     keys = {
       { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
@@ -105,6 +106,19 @@ return {
       require("codecompanion").setup({
         strategies = opts.strategies,
         adapters = opts.adapters,
+      })
+    end,
+  },
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.animate = { enabled = false }
+      opts.right = opts.right or {}
+      table.insert(opts.right, {
+        ft = "codecompanion",
+        title = "Companion Chat",
+        size = { width = 60 },
       })
     end,
   },
