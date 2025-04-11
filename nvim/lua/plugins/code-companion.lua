@@ -22,6 +22,12 @@ return {
             stop = {
               modes = { n = "<C-c>", i = "<C-c>" },
             },
+            send = {
+              callback = function(chat)
+                vim.cmd("stopinsert")
+                chat:submit()
+              end,
+            },
           },
         },
       },
