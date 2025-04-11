@@ -56,6 +56,10 @@ return {
       },
     },
     config = function(_, opts)
+      -- Setup the entire opts table
+      require("codecompanion").setup(opts)
+
+      -- For status update
       -- Check for Noice plugin
       local noice_ok, noice = pcall(require, "noice")
 
@@ -107,11 +111,6 @@ return {
             })
           end
         end,
-      })
-
-      require("codecompanion").setup({
-        strategies = opts.strategies,
-        adapters = opts.adapters,
       })
     end,
   },
