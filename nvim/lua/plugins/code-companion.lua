@@ -27,12 +27,26 @@ return {
     },
   },
   {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = function(_, opts)
+      opts.animate = { enabled = false }
+      opts.right = opts.right or {}
+      table.insert(opts.right, {
+        ft = "codecompanion",
+        title = "Companion Chat",
+        size = { width = 70 },
+      })
+    end,
+  },
+  {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ibhagwan/fzf-lua", -- For fzf provider, file or buffer picker
       "MeanderingProgrammer/render-markdown.nvim", -- Make Markdown buffers look beautiful
+      "folke/edgy.nvim",
     },
     opts = {
       adapters = {

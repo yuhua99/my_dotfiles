@@ -9,6 +9,7 @@
   "conform.nvim": { "branch": "master", "commit": "eebc724d12c5579d733d1f801386e0ceb909d001" },
   "copilot.lua": { "branch": "master", "commit": "25791ddb143c8855f2c3b46bedad3cad73bb9fb7" },
   "crates.nvim": { "branch": "main", "commit": "73d2c590c74a0c582144987a4decb4a642755859" },
+  "edgy.nvim": { "branch": "main", "commit": "7e8dedc39abebe40c289b8012cc89b11c69aa7a0" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
   "friendly-snippets": { "branch": "main", "commit": "31f2a2657b6261724313281fe0d8ba6f43f4a4fa" },
   "fzf-lua": { "branch": "main", "commit": "addb648ffe152c353232e8a88ff1364cbcf1ed1b" },
