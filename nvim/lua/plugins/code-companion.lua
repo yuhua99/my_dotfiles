@@ -116,7 +116,10 @@ return {
       },
       {
         mapping_key_prefix .. "a",
-        "<cmd>CodeCompanionChat Toggle<cr>",
+        function()
+          vim.cmd("CodeCompanionChat Toggle")
+          vim.cmd("startinsert")
+        end,
         desc = "Code Companion - Toggle",
         mode = { "n", "v" },
       },
