@@ -49,7 +49,20 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
-          roles = { llm = "  Copilot Chat", user = " User" },
+          roles = {
+            llm = function(adapter)
+              local model_name = ""
+              if adapter.schema and adapter.schema.model and adapter.schema.model.default then
+                local model = adapter.schema.model.default
+                if type(model) == "function" then
+                  model = model(adapter)
+                end
+                model_name = "(" .. model .. ")"
+              end
+              return "  " .. adapter.formatted_name .. model_name
+            end,
+            user = " User",
+          },
           slash_commands = {
             ["buffer"] = {
               callback = "strategies.chat.slash_commands.buffer",
