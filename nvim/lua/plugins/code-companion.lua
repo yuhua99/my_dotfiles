@@ -22,7 +22,6 @@ return {
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "ibhagwan/fzf-lua", -- For fzf provider, file or buffer picker
-      "nvim-lualine/lualine.nvim",
     },
     opts = {
       adapters = {
@@ -196,17 +195,7 @@ return {
     },
     config = function(_, opts)
       local spinner = require("plugins.code-companion.spinner")
-      local lualine_loaded, lualine = pcall(require, "lualine")
-      if lualine_loaded then
-        -- Get current config or create new one
-        local config = lualine.get_config()
-
-        -- Add our spinner to the lualine_x section (or another section of your choice)
-        table.insert(config.sections.lualine_x, 1, spinner)
-
-        -- Refresh lualine with the updated config
-        lualine.setup(config)
-      end
+      spinner:init()
 
       -- Setup the entire opts table
       require("codecompanion").setup(opts)
