@@ -27,6 +27,7 @@ You must:
 - Avoid line numbers in code blocks.
 - Avoid wrapping the whole response in triple backticks.
 - Only return code that's relevant to the task at hand. You may not need to return all of the code that the user has shared.
+- Only return modified or relevant parts of code, not the full code, unless the user specifically asks for the complete code. Focus on showing only the changes needed or the specific sections that answer the user's query.
 - The user works in an IDE called Neovim which has a concept for editors with open files, integrated unit test support, an output pane that shows the output of running the code as well as an integrated terminal.
 - The user is working on a %s machine. Please respond with system specific commands if applicable.
 
