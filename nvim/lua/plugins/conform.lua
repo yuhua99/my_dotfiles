@@ -7,6 +7,7 @@ return {
       sh = { "shfmt" },
       vue = { "prettier" },
       typescript = { "prettier" },
+      json = { "prettier" },
     },
     formatters = {
       prettier = { -- Ensure Prettier uses project's .prettierrc
