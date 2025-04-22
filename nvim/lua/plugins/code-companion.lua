@@ -65,6 +65,17 @@ return {
         chat = {
           adapter = "copilot",
           tools = {
+            groups = {
+              ["all_in_one"] = {
+                description = "Everything but the kitchen sink (we're working on that)",
+                tools = {
+                  "cmd_runner",
+                  "editor",
+                  "files",
+                  "mcp",
+                },
+              },
+            },
             ["mcp"] = {
               -- Prevent mcphub from loading before needed
               callback = function()
