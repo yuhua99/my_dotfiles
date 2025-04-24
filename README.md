@@ -1,44 +1,38 @@
 # My dotfiles
 
-#### this is my dotfiles containing
-1. neovim
-2. tmux
-3. git
+This repository contains my personal configuration files (dotfiles) for various tools.
 
-## AstroNvim Template
+## Managed Configurations
 
-**NOTE:** This is for AstroNvim v4+
+*   **Neovim:** Configuration based on [LazyVim](https://www.lazyvim.org/).
+*   **Tmux:** Terminal multiplexer setup.
+*   **Git:** Git configuration, including aliases and settings.
+*   **Alacritty:** Terminal emulator configuration.
+*   **Nushell:** Configuration for the Nu shell.
+*   **MCPHub:** Server configuration for the MCPHub Neovim plugin.
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+## Prerequisites
 
-#### Make a backup of your current nvim and shared folder
-
-```shell
-mv ~/.config/nvim ~/.config/nvim.bak
-mv ~/.local/share/nvim ~/.local/share/nvim.bak
-mv ~/.local/state/nvim ~/.local/state/nvim.bak
-mv ~/.cache/nvim ~/.cache/nvim.bak
-```
-
-## Git configs
-
-**NOTE** My gitconfig requires delta
-
-You can find [delta](https://github.com/dandavison/delta) here
-
-Remember to change the name and email to yours in `.gitconfig`
-
-## Tmux configs
-
-**NOTE** My tmux configs requires tpm
+*   **Git:** Requires [delta](https://github.com/dandavison/delta) for enhanced diff viewing.
+*   **Tmux:** Requires [tpm](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager). Make sure to install plugins with `prefix + I` after setup.
+*   **Neovim:** Requires a recent version of Neovim.
+*   **Alacritty:** Requires Alacritty terminal emulator.
+*   **Nushell:** Requires Nushell.
 
 ## 🛠️ Installation
 
-#### Clone the repository
+1.  **Clone the repository:**
+    ```shell
+    git clone git@github.com:yuhua99/my_dotfiles.git
+    cd my_dotfiles
+    ```
+2.  **Run the setup script:**
+    ```shell
+    bash setup.sh
+    ```
+    *(Review `setup.sh` to understand what it does before running it).*
 
-```shell
-git clone git@github.com:yuhua99/my_dotfiles.git
-cd my_dotfiles
-bash setup.sh
-```
+## Notes
 
+*   **Git:** Remember to change the `name` and `email` in `.gitconfig` to your own details.
+*   **Neovim:** This setup uses LazyVim. Refer to the LazyVim documentation for details on customization.
