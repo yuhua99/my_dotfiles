@@ -7,6 +7,7 @@ tasks=(
   "tmux"
   "alacritty"
   "nushell"
+  "mcphub"
 )
 
 ################
@@ -24,8 +25,9 @@ nvim() {
 
 tmux() {
   CopyToHome ".tmux.conf"
+  mkdir -p "$HOME/.tmux"
+  cp "$current_path/tmux-popup.sh" "$HOME/.tmux/"
   echo "Remember to install tpm and run prefix + I to install plugins!"
-  echo "Remember to copy the tmux-popup.sh to ~/.tmux/"
 }
 
 alacritty() {
@@ -34,6 +36,11 @@ alacritty() {
 
 nushell() {
   CopyToHome "nushell" "$HOME/.config"
+}
+
+mcphub() {
+  CopyToHome "mcphub" "$HOME/.config"
+  echo "Remember to update the api key in servers.json file"
 }
 
 ################
