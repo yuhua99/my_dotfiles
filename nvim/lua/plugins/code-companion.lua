@@ -1,6 +1,6 @@
 local mapping_key_prefix = vim.g.ai_prefix_key or "<leader>a"
 
-local SYSTEM_PROMPT = require("plugins.code-companion.prompts").SYSTEM_PROMPT
+local PROMPTS = require("plugins.code-companion.prompts")
 
 return {
   {
@@ -68,7 +68,7 @@ return {
             groups = {
               ["all_in_one"] = {
                 description = "Everything but the kitchen sink (we're working on that)",
-                system_prompt = "You are an agent, please keep going until the user's query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved. If you are not sure about file content or codebase structure pertaining to the user's request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer. You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.",
+                system_prompt = PROMPTS.AGENT_PROMPT,
                 tools = {
                   "cmd_runner",
                   "editor",
@@ -162,9 +162,9 @@ return {
       },
       opts = {
         log_level = "DEBUG",
-        system_prompt = SYSTEM_PROMPT,
+        system_prompt = PROMPTS.SYSTEM_PROMPT,
       },
-      prompt_library = require("plugins.code-companion.prompts").PROMPT_LIBRARY,
+      prompt_library = PROMPTS.PROMPT_LIBRARY,
     },
     keys = {
       -- Recommend setup
