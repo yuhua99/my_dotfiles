@@ -10,6 +10,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 *   **Alacritty:** Terminal emulator configuration.
 *   **Nushell:** Configuration for the Nu shell. (deprecated)
 *   **MCPHub:** Server configuration for the MCPHub Neovim plugin.
+*   **Starship:** Cross-shell prompt configuration.
 
 ## Prerequisites
 
@@ -18,6 +19,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 *   **Neovim:** Requires a recent version of Neovim.
 *   **Alacritty:** Requires Alacritty terminal emulator.
 *   **Nushell:** Requires Nushell.
+*   **Starship:** Requires Starship to be installed.
 
 ## 🛠️ Installation
 

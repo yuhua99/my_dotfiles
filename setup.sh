@@ -8,6 +8,7 @@ tasks=(
   "alacritty"
   "nushell"
   "mcphub"
+  "starship"
 )
 
 ################
@@ -41,6 +42,10 @@ nushell() {
 mcphub() {
   CopyToHome "mcphub" "$HOME/.config"
   echo "Remember to update the api key in servers.json file"
+}
+
+starship() {
+  CopyToHome "starship.toml" "$HOME/.config"
 }
 
 ################
