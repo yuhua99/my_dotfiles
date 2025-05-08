@@ -8,7 +8,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 *   **Tmux:** Terminal multiplexer setup.
 *   **Git:** Git configuration, including aliases and settings.
 *   **Alacritty:** Terminal emulator configuration.
-*   **Nushell:** Configuration for the Nu shell.
+*   **Nushell:** Configuration for the Nu shell. (deprecated)
 *   **MCPHub:** Server configuration for the MCPHub Neovim plugin.
 
 ## Prerequisites
