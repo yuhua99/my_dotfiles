@@ -47,7 +47,6 @@ return {
       "ibhagwan/fzf-lua", -- For fzf provider, file or buffer picker
       "MeanderingProgrammer/render-markdown.nvim", -- Make Markdown buffers look beautiful
       "folke/edgy.nvim",
-      "ravitemer/mcphub.nvim", -- For MCP servers
     },
     opts = {
       adapters = {
@@ -64,27 +63,6 @@ return {
       strategies = {
         chat = {
           adapter = "copilot",
-          tools = {
-            groups = {
-              ["all_in_one"] = {
-                description = "Everything but the kitchen sink (we're working on that)",
-                system_prompt = PROMPTS.AGENT_PROMPT,
-                tools = {
-                  "cmd_runner",
-                  "editor",
-                  "files",
-                  "mcp",
-                },
-              },
-            },
-            ["mcp"] = {
-              -- Prevent mcphub from loading before needed
-              callback = function()
-                return require("mcphub.extensions.codecompanion")
-              end,
-              description = "Call tools and resources from the MCP Servers",
-            },
-          },
           roles = {
             llm = function(adapter)
               local model_name = ""

@@ -6,7 +6,6 @@ vim.keymap.del("n", "<leader>l") -- lazy
 vim.keymap.del("n", "<leader>L") -- changelog
 vim.keymap.del("n", "<leader>-") -- split window
 vim.keymap.del("n", "<leader>|") -- split window vertically
-vim.keymap.set("n", "<leader>m", vim.cmd.MCPHub, { desc = "Open MCPHub" })
 vim.keymap.set("n", "q", "<Nop>", { desc = "Disable macro recording" })
 
 -- prevent from yanking into the system clipboard
