@@ -7,6 +7,7 @@ tasks=(
   "tmux"
   "alacritty"
   "nushell"
+  "fish"
   "mcphub"
   "starship"
 )
@@ -37,6 +38,10 @@ alacritty() {
 
 nushell() {
   CopyToHome "nushell" "$HOME/.config"
+}
+
+fish() {
+  CopyToHome "fish" "$HOME/.config"
 }
 
 mcphub() {
