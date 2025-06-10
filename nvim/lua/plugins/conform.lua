@@ -8,6 +8,7 @@ return {
       vue = { "prettier" },
       typescript = { "prettier" },
       json = { "prettier" },
+      markdown = { "prettier" },
     },
     formatters = {
       prettier = { -- Ensure Prettier uses project's .prettierrc
