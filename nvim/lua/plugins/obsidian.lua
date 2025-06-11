@@ -141,6 +141,25 @@ return {
           opts = { buffer = true, expr = true },
         },
       },
+      note_id_func = function(title)
+        local note_name = tostring(os.date("%Y%m%d%H%M"))
+
+        if title ~= nil then
+          local processed_title = title
+            :gsub("%s+", "-") -- Replace spaces/whitespace with hyphens
+            :gsub("[^A-Za-z0-9-]", "") -- Remove special characters except hyphens
+            :gsub("%-+", "-") -- Replace multiple hyphens with single hyphen
+            :gsub("^%-", "") -- Remove leading hyphen
+            :gsub("%-$", "") -- Remove trailing hyphen
+            :lower() -- Convert to lowercase
+
+          if processed_title ~= "" then
+            note_name = note_name .. "-" .. processed_title
+          end
+        end
+
+        return note_name
+      end,
     },
   },
   {
@@ -150,5 +169,12 @@ return {
         { prefix, group = "obsidian", icon = " ", mode = { "n", "v" } },
       },
     },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = function(_, opts)
+      table.insert(opts.sections.lualine_x, 1, "g:obsidian")
+    end,
   },
 }
