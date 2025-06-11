@@ -169,6 +169,12 @@ return {
         mode = "v",
       },
       {
+        mapping_key_prefix .. "E",
+        "<cmd>CodeCompanion /english<cr>",
+        desc = "Code Companion - English Review",
+        mode = "v",
+      },
+      {
         mapping_key_prefix .. "f",
         "<cmd>CodeCompanion /fix<cr>",
         desc = "Code Companion - Fix code",

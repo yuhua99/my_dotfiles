@@ -422,6 +422,62 @@ local PROMPT_LIBRARY = {
       },
     },
   },
+  ["English Review"] = {
+    strategy = "chat",
+    description = "Review English writing for spelling, grammar, and phrasing improvements.",
+    opts = {
+      short_name = "english",
+      auto_submit = true,
+    },
+    prompts = {
+      {
+        role = "system",
+        content = [[You are an expert English writing assistant. Your task is to review text for:
+- Spelling errors
+- Grammatical mistakes  
+- Non-native phrasing that could be improved
+- Clarity and readability issues
+- Word choice improvements
+
+Provide specific corrections and explain why changes improve the text. Focus on making the writing sound more natural and professional.]],
+        opts = {
+          visible = false,
+        },
+      },
+      {
+        role = "user",
+        content = function(context)
+          local text
+
+          -- Check if we have visual selection context
+          if
+            context.start_line
+            and context.end_line
+            and (
+              context.start_line ~= context.end_line
+              or (context.start_col and context.end_col and context.start_col ~= context.end_col)
+            )
+          then
+            -- Visual mode with actual selection - don't include text in prompt since CodeCompanion will add it
+            return "Please review the selected text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
+          else
+            -- Get entire buffer content when no selection
+            local bufnr = context.bufnr or vim.api.nvim_get_current_buf()
+            local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+            text = table.concat(lines, "\n")
+
+            return string.format(
+              "Please review the following text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary:\n\n%s",
+              text
+            )
+          end
+        end,
+        opts = {
+          contains_code = false,
+        },
+      },
+    },
+  },
 }
 
 return {
