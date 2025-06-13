@@ -428,18 +428,35 @@ local PROMPT_LIBRARY = {
     opts = {
       short_name = "english",
       auto_submit = true,
+      ignore_system_prompt = true,
     },
     prompts = {
       {
         role = "system",
-        content = [[You are an expert English writing assistant. Your task is to review text for:
-- Spelling errors
-- Grammatical mistakes  
-- Non-native phrasing that could be improved
-- Clarity and readability issues
-- Word choice improvements
+        content = [[
+You are an expert English writing assistant. Your task is to review the provided text and identify issues in these areas:
 
-Provide specific corrections and explain why changes improve the text. Focus on making the writing sound more natural and professional.]],
+1. **Spelling and grammar errors**
+2. **Non-native phrasing** that could sound more natural
+3. **Clarity and readability** problems
+4. **Word choice** improvements for better precision
+5. **Sentence structure** and flow
+
+## Instructions:
+- Only flag actual errors or meaningful improvements
+- Provide specific corrections with brief explanations
+- Focus on making writing sound natural and professional
+- Ignore formatting, code blocks, technical syntax, and YAML/markdown structure
+- Do not comment on document structure or non-prose elements
+
+## Output format:
+For each issue found:
+- Quote the problematic text
+- Provide the correction
+- Briefly explain why the change improves the text
+
+If no issues are found, simply respond: "No writing issues detected."
+        ]],
         opts = {
           visible = false,
         },
@@ -447,29 +464,12 @@ Provide specific corrections and explain why changes improve the text. Focus on 
       {
         role = "user",
         content = function(context)
-          local text
-
+          local mode = vim.api.nvim_get_mode().mode
           -- Check if we have visual selection context
-          if
-            context.start_line
-            and context.end_line
-            and (
-              context.start_line ~= context.end_line
-              or (context.start_col and context.end_col and context.start_col ~= context.end_col)
-            )
-          then
-            -- Visual mode with actual selection - don't include text in prompt since CodeCompanion will add it
+          if mode == "v" then
             return "Please review the selected text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
           else
-            -- Get entire buffer content when no selection
-            local bufnr = context.bufnr or vim.api.nvim_get_current_buf()
-            local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
-            text = table.concat(lines, "\n")
-
-            return string.format(
-              "Please review the following text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary:\n\n%s",
-              text
-            )
+            return "#buffer\nPlease review the following text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
           end
         end,
         opts = {
