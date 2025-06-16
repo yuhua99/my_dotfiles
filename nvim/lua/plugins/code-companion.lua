@@ -106,9 +106,19 @@ return {
               index = 1,
               description = "Send",
             },
-            close = {
+            toggle = {
               modes = {
                 n = "q",
+              },
+              index = 3,
+              callback = function()
+                vim.cmd("CodeCompanionChat Toggle")
+              end,
+              description = "Toggle Chat",
+            },
+            close = {
+              modes = {
+                n = "Q",
               },
               index = 3,
               callback = "keymaps.close",
