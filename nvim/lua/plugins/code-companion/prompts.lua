@@ -469,7 +469,7 @@ If no issues are found, simply respond: "No writing issues detected."
           if mode == "v" then
             return "Please review the selected text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
           else
-            return "#buffer\nPlease review the following text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
+            return "#{buffer}\nPlease review the following text for spelling errors, grammatical mistakes, and non-native phrasing. Provide improved alternatives or corrections where necessary."
           end
         end,
         opts = {
