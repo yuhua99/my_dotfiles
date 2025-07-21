@@ -8,7 +8,7 @@ return {
     optional = true,
     opts = {
       spec = {
-        { mapping_key_prefix, group = "AI Code Companion", mode = { "n", "v" } },
+        { mapping_key_prefix, group = "AI", mode = { "n", "v" } },
       },
     },
   },
