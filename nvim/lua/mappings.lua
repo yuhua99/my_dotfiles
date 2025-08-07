@@ -25,4 +25,8 @@ end, { desc = "buffer goto prev" })
 -- nvimtree
 map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle" })
 
+-- git blame
+map("n", "<leader>gb", function() require("gitsigns").blame_line() end, { desc = "git blame line" })
+map("n", "<leader>gB", function() require("gitsigns").blame_line({ full = true }) end, { desc = "git blame line (full)" })
+
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
