@@ -10,6 +10,7 @@ return {
     opts = {
       delay = 0,
       spec = {
+        { '<leader>a', group = 'Ai'},
         { '<leader>c', group = 'Code'},
         { '<leader>d', group = 'Diagnostic' },
         { '<leader>f', group = 'Find' },
