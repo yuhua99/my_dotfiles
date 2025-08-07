@@ -25,4 +25,3 @@ return {
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 }
--- vim: ts=2 sts=2 sw=2 et
