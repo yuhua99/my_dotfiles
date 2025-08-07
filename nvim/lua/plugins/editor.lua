@@ -45,24 +45,12 @@ return {
 
       -- Document existing key chains
       spec = {
+        { '<leader>c', group = 'Code' },
+        { '<leader>f', group = 'Find' },
+        { '<leader>g', group = 'Git' },
         { '<leader>s', group = 'Search' },
         { '<leader>t', group = 'Toggle' },
-        { '<leader>g', group = 'git' },
-      },
-    },
-  },
-  {
-    desc = 'Snacks file explorer',
-    recommended = true,
-    'folke/snacks.nvim',
-    opts = { explorer = {} },
-    keys = {
-      {
-        '<leader>e',
-        function()
-          Snacks.explorer()
-        end,
-        desc = 'Explorer Snacks (cwd)',
+        { '<leader>u', group = 'Ui' },
       },
     },
   },
