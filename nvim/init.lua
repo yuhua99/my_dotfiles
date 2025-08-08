@@ -35,3 +35,6 @@ require "autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Load the inline search counter
+require("configs.inline-search-count").setup()
