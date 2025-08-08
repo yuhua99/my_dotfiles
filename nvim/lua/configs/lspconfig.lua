@@ -1,4 +1,4 @@
-require("nvchad.configs.lspconfig").defaults()
+require "configs.lspconfig-default"
 require("mason").setup {
   ensure_installed = {
     "lua-language-server",
