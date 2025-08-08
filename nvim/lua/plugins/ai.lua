@@ -5,6 +5,12 @@ local PROMPTS = require "plugins.code-companion.prompts"
 return {
   {
     "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    event = "BufReadPost",
+    config = function()
+      require("copilot").setup({})
+    end,
   },
   {
     "zbirenbaum/copilot-cmp",
