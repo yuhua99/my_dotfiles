@@ -10,7 +10,7 @@ return {
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = 'format',
+        desc = 'Format',
       },
     },
     opts = {
