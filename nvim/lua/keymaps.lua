@@ -18,6 +18,9 @@ map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
 -- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
+-- Oil file explorer
+map('n', '<leader>e', '<cmd>Oil<cr>', { desc = 'Open Oil file explorer' })
+
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --
