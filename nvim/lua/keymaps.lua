@@ -1,4 +1,5 @@
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
@@ -11,12 +12,6 @@ map('n', '<leader>cd', vim.diagnostic.setloclist, { desc = 'Diagnostic quickfix 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
-
--- TIP: Disable arrow keys in normal mode
--- map('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- map('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- map('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- map('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
 
 -- Oil file explorer
 map('n', '<leader>e', '<cmd>Oil<cr>', { desc = 'Open Oil file explorer' })
@@ -35,6 +30,13 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- map("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- map("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- map("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+-- disable macro recording
+map('n', 'q', '<Nop>')
+
+-- no yanking to system clipboard for c
+vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true, silent = true })
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
