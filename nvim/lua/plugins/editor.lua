@@ -35,7 +35,6 @@ return {
         },
         opts = {},
       },
-      'folke/lazydev.nvim',
       'giuxtaposition/blink-cmp-copilot',
     },
     --- @module 'blink.cmp'
@@ -82,9 +81,8 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev', 'copilot' },
+        default = { 'lsp', 'path', 'snippets', 'copilot' },
         providers = {
-          lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
           copilot = {
             module = 'blink-cmp-copilot',
             name = 'copilot',
@@ -142,11 +140,9 @@ return {
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        -- Conform can also run multiple formatters sequentially
-        -- python = { "isort", "black" },
-        --
-        -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettier' },
+        typescript = { 'prettier' },
+        vue = { 'prettier' },
       },
     },
   },
