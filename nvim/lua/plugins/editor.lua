@@ -36,6 +36,7 @@ return {
         opts = {},
       },
       'folke/lazydev.nvim',
+      'giuxtaposition/blink-cmp-copilot',
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -81,9 +82,15 @@ return {
       },
 
       sources = {
-        default = { 'lsp', 'path', 'snippets', 'lazydev' },
+        default = { 'lsp', 'path', 'snippets', 'lazydev', 'copilot' },
         providers = {
           lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
+          copilot = {
+            module = 'blink-cmp-copilot',
+            name = 'copilot',
+            score_offset = 100,
+            async = true,
+          },
         },
       },
 
@@ -283,6 +290,7 @@ return {
 
       -- Document existing key chains
       spec = {
+        { '<leader>a', group = 'Ai' },
         { '<leader>c', group = 'Code' },
         { '<leader>f', group = 'Find' },
         { '<leader>g', group = 'Git' },
