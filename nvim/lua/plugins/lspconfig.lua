@@ -131,19 +131,27 @@ return {
 
       local vue_ls_path = vim.fn.expand '$MASON/packages/vue-language-server'
       local vue_plugin_path = vue_ls_path .. '/node_modules/@vue/language-server'
+      local vue_plugin = {
+        name = '@vue/typescript-plugin',
+        location = vue_plugin_path,
+        languages = { 'vue' },
+        configNamespace = 'typescript',
+      }
 
-      vim.lsp.config('ts_ls', {
-        init_options = {
-          plugins = {
-            {
-              name = '@vue/typescript-plugin',
-              location = vue_plugin_path,
-              languages = { 'vue' },
+      local vtsls_config = {
+        settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {
+                vue_plugin,
+              },
             },
           },
         },
-        filetypes = { 'typescript', 'javascript', 'vue' },
-      })
+        filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
+      }
+
+      vim.lsp.config('vtsls', vtsls_config)
 
       local servers = {
         'lua_ls',
