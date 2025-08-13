@@ -76,3 +76,6 @@ vim.o.softtabstop = 2 -- Number of spaces that a <Tab> counts for while performi
 vim.o.expandtab = true -- Use spaces instead of tabs
 
 vim.o.swapfile = false -- no swapfile
+
+-- term colors
+vim.o.termguicolors = true
