@@ -4,7 +4,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 ## Managed Configurations
 
-*   **Neovim:** Configuration based on [LazyVim](https://www.lazyvim.org/).
+*   **Neovim:** My own configuration.
 *   **Tmux:** Terminal multiplexer setup.
 *   **Git:** Git configuration, including aliases and settings.
 *   **Alacritty:** Terminal emulator configuration.
