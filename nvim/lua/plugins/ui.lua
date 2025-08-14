@@ -1,11 +1,11 @@
 return {
   {
-    'vague2k/vague.nvim',
+    'rose-pine/neovim',
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
+    name = 'rose-pine',
     config = function()
-      require('vague').setup {}
-      vim.cmd.colorscheme 'vague'
+      vim.cmd.colorscheme 'rose-pine'
     end,
   },
 }
