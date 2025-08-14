@@ -133,7 +133,7 @@ return {
           return nil
         else
           return {
-            timeout_ms = 500,
+            timeout_ms = 800,
             lsp_format = 'fallback',
           }
         end
@@ -143,6 +143,13 @@ return {
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         vue = { 'prettier' },
+      },
+      formatters = {
+        prettier = {
+          command = 'prettier',
+          args = { '--stdin-filepath', '$FILENAME' },
+          stdin = true,
+        },
       },
     },
   },
