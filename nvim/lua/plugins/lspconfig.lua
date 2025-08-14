@@ -30,6 +30,22 @@ return {
             vim.keymap.set(mode, keys, func, options)
           end
 
+          -- LSP Navigation keymaps
+          map('gD', vim.lsp.buf.declaration, 'Go to declaration')
+          map('gd', vim.lsp.buf.definition, 'Go to definition')
+          map('gi', vim.lsp.buf.implementation, 'Go to implementation')
+          map('gR', vim.lsp.buf.references, 'Go to references')
+          map('gt', vim.lsp.buf.type_definition, 'Go to type definition')
+
+          -- Code actions
+          map('<leader>ca', vim.lsp.buf.code_action, 'Code action', { 'n', 'v' })
+          map('<leader>cr', vim.lsp.buf.rename, 'Rename symbol')
+
+          -- Diagnostics
+          map('[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
+          map(']d', vim.diagnostic.goto_next, 'Next diagnostic')
+          map('<leader>ce', vim.diagnostic.open_float, 'Show diagnostic')
+
           -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
           ---@param client vim.lsp.Client
           ---@param method vim.lsp.protocol.Method
@@ -79,7 +95,7 @@ return {
           if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>ch', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
-            end, 'toggle inlay hints')
+            end, 'Toggle inlay hints')
           end
         end,
       })
