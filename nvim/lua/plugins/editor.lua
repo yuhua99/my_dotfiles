@@ -1,12 +1,4 @@
 return {
-  -- autopairs
-  -- https://github.com/windwp/nvim-autopairs
-  {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    opts = {},
-  },
-
   { -- Autocompletion
     'saghen/blink.cmp',
     event = { 'InsertEnter', 'CmdlineEnter' }, -- Load only when actually typing
@@ -154,15 +146,6 @@ return {
     },
   },
 
-  { -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    event = { 'BufReadPost', 'BufNewFile' }, -- Load when opening files
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
-    main = 'ibl',
-    opts = {},
-  },
-
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
     event = { 'BufReadPost', 'BufNewFile' }, -- Load when opening files
@@ -220,9 +203,6 @@ return {
     },
   },
 
-  -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = { 'BufReadPost', 'BufNewFile' }, dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
-
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     event = { 'BufReadPost', 'BufNewFile' }, -- Load when opening files
@@ -250,59 +230,31 @@ return {
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
 
-  { -- Useful plugin to show you pending keybinds.
-    'folke/which-key.nvim',
-    event = 'VeryLazy', -- Load after startup but before user interaction
+  {
+    'lewis6991/gitsigns.nvim',
+    event = 'User FilePost',
     opts = {
-      -- delay between pressing a key and opening which-key (milliseconds)
-      -- this setting is independent of vim.o.timeoutlen
-      delay = 0,
-      icons = {
-        -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
-        -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
-        -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
-        keys = vim.g.have_nerd_font and {} or {
-          Up = '<Up> ',
-          Down = '<Down> ',
-          Left = '<Left> ',
-          Right = '<Right> ',
-          C = '<C-…> ',
-          M = '<M-…> ',
-          D = '<D-…> ',
-          S = '<S-…> ',
-          CR = '<CR> ',
-          Esc = '<Esc> ',
-          ScrollWheelDown = '<ScrollWheelDown> ',
-          ScrollWheelUp = '<ScrollWheelUp> ',
-          NL = '<NL> ',
-          BS = '<BS> ',
-          Space = '<Space> ',
-          Tab = '<Tab> ',
-          F1 = '<F1>',
-          F2 = '<F2>',
-          F3 = '<F3>',
-          F4 = '<F4>',
-          F5 = '<F5>',
-          F6 = '<F6>',
-          F7 = '<F7>',
-          F8 = '<F8>',
-          F9 = '<F9>',
-          F10 = '<F10>',
-          F11 = '<F11>',
-          F12 = '<F12>',
-        },
+      signs = {
+        delete = { text = '󰍵' },
+        changedelete = { text = '󱕖' },
       },
-
-      -- Document existing key chains
-      spec = {
-        { '<leader>a', group = 'Ai' },
-        { '<leader>c', group = 'Code' },
-        { '<leader>f', group = 'Find' },
-        { '<leader>g', group = 'Git' },
-        { '<leader>s', group = 'Search' },
-        { '<leader>t', group = 'Toggle' },
-        { '<leader>u', group = 'Ui' },
+    },
+    keys = {
+      {
+        '<leader>gb',
+        mode = { 'n' },
+        function()
+          require('gitsigns').blame_line()
+        end,
+        desc = 'Git blame line',
+      },
+      {
+        '<leader>gB',
+        mode = { 'n' },
+        function()
+          require('gitsigns').blame_line { full = true }
+        end,
+        desc = 'Git blame line (full)',
       },
     },
   },
