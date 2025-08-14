@@ -244,17 +244,9 @@ return {
         '<leader>gb',
         mode = { 'n' },
         function()
-          require('gitsigns').blame_line()
-        end,
-        desc = 'Git blame line',
-      },
-      {
-        '<leader>gB',
-        mode = { 'n' },
-        function()
           require('gitsigns').blame_line { full = true }
         end,
-        desc = 'Git blame line (full)',
+        desc = 'Git blame line',
       },
     },
   },
