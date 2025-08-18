@@ -1,6 +1,10 @@
 local map = vim.keymap.set
 local nomap = vim.keymap.del
 map('n', '<Esc>', '<cmd>nohlsearch<CR>')
+map('n', 'gl', '$', { desc = 'Go to end of line' })
+map('v', 'gl', '$', { desc = 'Go to end of line' })
+map('n', 'gh', '^', { desc = 'Go to beginning of line' })
+map('v', 'gh', '^', { desc = 'Go to beginning of line' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
