@@ -154,25 +154,21 @@ return {
         configNamespace = 'typescript',
       }
 
-      local vtsls_config = {
-        settings = {
-          vtsls = {
-            tsserver = {
-              globalPlugins = {
-                vue_plugin,
-              },
-            },
+      local ts_ls_config = {
+        init_options = {
+          plugins = {
+            vue_plugin,
           },
         },
         filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue' },
       }
 
-      vim.lsp.config('vtsls', vtsls_config)
+      vim.lsp.config('ts_ls', ts_ls_config)
 
       local servers = {
         'lua_ls',
         'vue_ls',
-        'vtsls',
+        'ts_ls',
       }
 
       vim.lsp.enable(servers)
