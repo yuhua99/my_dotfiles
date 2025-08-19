@@ -17,7 +17,7 @@ return {
       },
     },
     keys = {
-      { '<leader>/', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
+      { 'fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { '<leader>fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { '<leader>fb', '<cmd>FzfLua buffers<cr>', desc = 'Find buffers' },
       { '<leader>fs', '<cmd>FzfLua grep_cword<cr>', desc = 'Search word under cursor' },
@@ -40,7 +40,7 @@ return {
     },
     keys = {
       {
-        '<leader> ',
+        'ff',
         function()
           require('fff').find_files()
         end,
