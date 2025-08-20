@@ -35,6 +35,14 @@ map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- disable macro recording
 map('n', 'q', '<Nop>')
 
+-- Allow q to quit help/checkhealth buffers
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'help', 'checkhealth' },
+  callback = function()
+    vim.keymap.set('n', 'q', '<cmd>quit<cr>', { buffer = true, desc = 'Quit help/checkhealth buffer' })
+  end,
+})
+
 -- no yanking to system clipboard for c
 vim.api.nvim_set_keymap('n', 'c', '"_c', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', 'c', '"_c', { noremap = true, silent = true })
