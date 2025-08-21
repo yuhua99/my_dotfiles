@@ -1,7 +1,10 @@
 return {
   'akinsho/bufferline.nvim',
   version = '*',
-  dependencies = 'nvim-tree/nvim-web-devicons',
+  dependencies = {
+    'nvim-tree/nvim-web-devicons',
+    'ojroques/nvim-bufdel',
+  },
   event = { 'BufReadPost', 'BufNewFile' },
   opts = {
     options = {
@@ -20,6 +23,6 @@ return {
   keys = {
     { 'H', '<cmd> BufferLineCyclePrev <CR>', mode = 'n' },
     { 'L', '<cmd> BufferLineCycleNext <CR>', mode = 'n' },
-    { '<leader>x', '<cmd> bd <CR>', desc = 'Close buffer', mode = 'n' },
+    { '<leader>x', '<cmd> BufDel <CR>', desc = 'Close buffer', mode = 'n' },
   },
 }
