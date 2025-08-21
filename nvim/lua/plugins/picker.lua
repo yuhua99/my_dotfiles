@@ -18,9 +18,10 @@ return {
     },
     keys = {
       { 'fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
-      { '<leader>fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { '<leader>fb', '<cmd>FzfLua buffers<cr>', desc = 'Find buffers' },
+      { '<leader>fr', '<cmd>FzfLua resume<cr>', desc = 'Resume' },
       { '<leader>fs', '<cmd>FzfLua grep_cword<cr>', desc = 'Search word under cursor' },
+      { '<leader>fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { '<leader>gs', '<cmd>FzfLua git_status<cr>', desc = 'Git status' },
       { '<leader>gc', '<cmd>FzfLua git_commits<cr>', desc = 'Git commits' },
       { '<leader>cR', '<cmd>FzfLua lsp_references<cr>', desc = 'Fzf references' },
