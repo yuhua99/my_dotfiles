@@ -98,9 +98,6 @@ Identify any issues related to:
 - Any inconsistencies in naming, formatting, or overall coding style.
 - Repetitive code patterns that could be more efficiently handled through abstraction or optimization.
 ]]
-local AGENT_PROMPT =
-  string.format [[You are an agent, please keep going until the user's query is completely resolved, before ending your turn and yielding back to the user. Only terminate your turn when you are sure that the problem is solved. If you are not sure about file content or codebase structure pertaining to the user's request, use your tools to read files and gather the relevant information: do NOT guess or make up an answer. You MUST plan extensively before each function call, and reflect extensively on the outcomes of the previous function calls. DO NOT do this entire process by making function calls only, as this can impair your ability to solve the problem and think insightfully.
-]]
 
 local PROMPT_LIBRARY = {
   -- Custom the default prompt
@@ -465,5 +462,4 @@ If no issues are found, simply respond: "No writing issues detected."
 return {
   SYSTEM_PROMPT = SYSTEM_PROMPT,
   PROMPT_LIBRARY = PROMPT_LIBRARY,
-  AGENT_PROMPT = AGENT_PROMPT,
 }
