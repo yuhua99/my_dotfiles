@@ -147,7 +147,7 @@ return {
   },
 
   { -- Collection of various small independent plugins/modules
-    'echasnovski/mini.nvim',
+    'nvim-mini/mini.nvim',
     event = { 'BufReadPost', 'BufNewFile' }, -- Load when opening files
     config = function()
       -- Better Around/Inside textobjects
@@ -181,7 +181,7 @@ return {
       end
 
       -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      --  Check out: https://github.com/nvim-mini/mini.nvim
     end,
   },
 
