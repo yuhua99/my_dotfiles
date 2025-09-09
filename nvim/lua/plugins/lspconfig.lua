@@ -164,11 +164,13 @@ return {
       }
 
       vim.lsp.config('ts_ls', ts_ls_config)
+      vim.lsp.config('rust_analyzer', {})
 
       local servers = {
         'lua_ls',
         'vue_ls',
         'ts_ls',
+        'rust_analyzer',
       }
 
       vim.lsp.enable(servers)
