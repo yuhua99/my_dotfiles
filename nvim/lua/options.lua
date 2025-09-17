@@ -79,3 +79,6 @@ vim.o.swapfile = false -- no swapfile
 
 -- term colors
 vim.o.termguicolors = true
+
+-- hide cmd bar
+vim.opt.cmdheight = 0
