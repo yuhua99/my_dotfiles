@@ -166,6 +166,7 @@ return {
       vim.lsp.config('ts_ls', ts_ls_config)
       vim.lsp.config('rust_analyzer', {})
       vim.lsp.config('gopls', {})
+      vim.lsp.config('vue_ls', {})
 
       local servers = {
         'lua_ls',
