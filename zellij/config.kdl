@@ -1,24 +1,40 @@
 keybinds clear-defaults=true {
     locked {
-        bind "Ctrl a" { SwitchToMode "normal"; }
+        bind "Ctrl g" { SwitchToMode "normal"; }
+        bind "Ctrl a" { SwitchToMode "tmux"; }
+    }
+    tmux {
+        bind "[" { SwitchToMode "Scroll"; }
+        bind "Ctrl a" { Write 2; SwitchToMode "locked"; }
+        bind "/" { NewPane "Down"; SwitchToMode "locked"; }
+        bind "v" { NewPane "Right"; SwitchToMode "locked"; }
+        bind "c" { NewTab; SwitchToMode "locked"; }
+        bind "r" { SwitchToMode "RenameTab"; }
+        bind "h" "Left" { MoveFocus "Left"; }
+        bind "l" "Right" { MoveFocus "Right"; }
+        bind "j" "Down" { MoveFocus "Down"; }
+        bind "k" "Up" { MoveFocus "Up"; }
+        bind "d" { Detach; }
+        bind "x" { CloseFocus; SwitchToMode "locked"; }
+
+        bind "z" { ToggleFocusFullscreen; SwitchToMode "locked"; }
+        bind "Space" { NextSwapLayout; }
     }
     pane {
-        bind "left" { MoveFocus "left"; }
-        bind "down" { MoveFocus "down"; }
-        bind "up" { MoveFocus "up"; }
-        bind "right" { MoveFocus "right"; }
+        bind "h" "Left" { MoveFocus "Left"; }
+        bind "l" "Right" { MoveFocus "Right"; }
+        bind "j" "Down" { MoveFocus "Down"; }
+        bind "k" "Up" { MoveFocus "Up"; }
+
+        bind "p" { SwitchToMode "normal"; }
         bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
+        bind "n" { NewPane; SwitchToMode "locked"; }
         bind "d" { NewPane "down"; SwitchToMode "locked"; }
+        bind "r" { NewPane "right"; SwitchToMode "locked"; }
+
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "h" { MoveFocus "left"; }
         bind "i" { TogglePanePinned; SwitchToMode "locked"; }
-        bind "j" { MoveFocus "down"; }
-        bind "k" { MoveFocus "up"; }
-        bind "l" { MoveFocus "right"; }
-        bind "n" { NewPane; SwitchToMode "locked"; }
-        bind "p" { SwitchToMode "normal"; }
-        bind "r" { NewPane "right"; SwitchToMode "locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "x" { CloseFocus; SwitchToMode "locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "locked"; }
@@ -136,7 +152,7 @@ keybinds clear-defaults=true {
             SwitchToMode "locked"
         }
     }
-    shared_among "normal" "locked" {
+    shared_among "normal" "tmux" "locked" {
         bind "Alt left" { MoveFocusOrTab "left"; }
         bind "Alt down" { MoveFocus "down"; }
         bind "Alt up" { MoveFocus "up"; }
@@ -156,7 +172,7 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
     }
     shared_except "locked" "renametab" "renamepane" {
-        bind "Ctrl a" { SwitchToMode "locked"; }
+        bind "Ctrl g" { SwitchToMode "locked"; }
         bind "q" { Detach; }
         bind "d" { Detach; }
         bind "Q" { Quit; }
