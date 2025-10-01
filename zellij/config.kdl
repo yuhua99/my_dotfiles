@@ -9,7 +9,7 @@ keybinds clear-defaults=true {
         bind "/" { NewPane "Down"; SwitchToMode "locked"; }
         bind "v" { NewPane "Right"; SwitchToMode "locked"; }
         bind "c" { NewTab; SwitchToMode "locked"; }
-        bind "r" { SwitchToMode "RenameTab"; }
+        bind "r" { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }
         bind "j" "Down" { MoveFocus "Down"; }
