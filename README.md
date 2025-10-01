@@ -6,16 +6,18 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 *   **Neovim:** My own configuration.
 *   **Tmux:** Terminal multiplexer setup.
+*   **Zellij:** Opinionated keymap with vi-style navigation.
 *   **Git:** Git configuration, including aliases and settings.
 *   **Alacritty:** Terminal emulator configuration.
 *   **Nushell:** Configuration for the Nu shell. (deprecated)
-*   **MCPHub:** Server configuration for the MCPHub Neovim plugin.
+*   **MCPHub:** Server configuration for the MCPHub Neovim plugin. (deprecated)
 *   **Starship:** Cross-shell prompt configuration.
 
 ## Prerequisites
 
 *   **Git:** Requires [delta](https://github.com/dandavison/delta) for enhanced diff viewing.
 *   **Tmux:** Requires [tpm](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager). Make sure to install plugins with `prefix + I` after setup.
+*   **Zellij:** Install Zellij 0.40+ for the custom keybinds defined in `zellij/config.kdl`.
 *   **Neovim:** Requires a recent version of Neovim.
 *   **Alacritty:** Requires Alacritty terminal emulator.
 *   **Nushell:** Requires Nushell.
@@ -38,3 +40,4 @@ This repository contains my personal configuration files (dotfiles) for various 
 
 *   **Git:** Remember to change the `name` and `email` in `.gitconfig` to your own details.
 *   **Neovim:** This setup uses LazyVim. Refer to the LazyVim documentation for details on customization.
+*   **Zellij:** Starts in locked mode. Hit `Ctrl+a` to enter normal mode. `n`/`d` create panes (horizontal/vertical), `tab` switches focus, `[`/`]` break panes into new tabs, `f` toggles fullscreen, and `Ctrl+a` again returns to locked mode.

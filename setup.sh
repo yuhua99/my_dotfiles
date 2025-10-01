@@ -10,6 +10,7 @@ tasks=(
   "fish"
   "mcphub"
   "starship"
+  "zellij"
 )
 
 ################
@@ -51,6 +52,10 @@ mcphub() {
 
 starship() {
   CopyToHome "starship.toml" "$HOME/.config"
+}
+
+zellij() {
+  CopyToHome "zellij" "$HOME/.config"
 }
 
 ################
