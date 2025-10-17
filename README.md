@@ -16,7 +16,7 @@ This repository contains my personal configuration files (dotfiles) for various 
 ## Prerequisites
 
 *   **Git:** Requires [delta](https://github.com/dandavison/delta) for enhanced diff viewing.
-*   **Tmux:** Requires [tpm](https://github.com/tmux-plugins/tpm) (Tmux Plugin Manager). Make sure to install plugins with `prefix + I` after setup.
+*   **Tmux:** Requires tmux.
 *   **Zellij:** Install Zellij 0.40+ for the custom keybinds defined in `zellij/config.kdl`.
 *   **Neovim:** Requires a recent version of Neovim.
 *   **Alacritty:** Requires Alacritty terminal emulator.
