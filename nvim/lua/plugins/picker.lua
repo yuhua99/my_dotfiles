@@ -2,6 +2,17 @@ return {
   {
     'ibhagwan/fzf-lua',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('fzf-lua').setup {
+        previewers = {
+          builtin = {
+            syntax_limit_b = 1024 * 100, -- 100KB
+          },
+        },
+      }
+      -- fzf-lua as vim.ui.select interface
+      require('fzf-lua').register_ui_select()
+    end,
     keys = {
       { 'fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { 'ff', '<cmd>FzfLua files<cr>', desc = 'Open file picker' },
