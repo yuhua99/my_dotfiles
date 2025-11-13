@@ -1,7 +1,5 @@
 local mapping_key_prefix = '<leader>a'
 
-local PROMPTS = require 'plugins.code-companion.prompts'
-
 return {
   {
     'zbirenbaum/copilot.lua',
@@ -144,11 +142,6 @@ return {
           },
         },
       },
-      opts = {
-        log_level = 'DEBUG',
-        system_prompt = PROMPTS.SYSTEM_PROMPT,
-      },
-      prompt_library = PROMPTS.PROMPT_LIBRARY,
     },
     keys = {
       -- Recommend setup
