@@ -32,9 +32,6 @@ return {
 
           -- LSP Navigation keymaps
           map('gD', vim.lsp.buf.declaration, 'Go to declaration')
-          map('gd', vim.lsp.buf.definition, 'Go to definition')
-          map('gi', vim.lsp.buf.implementation, 'Go to implementation')
-          map('gR', vim.lsp.buf.references, 'Go to references')
           map('gt', vim.lsp.buf.type_definition, 'Go to type definition')
 
           -- Code actions
@@ -154,6 +151,14 @@ return {
       vim.lsp.config('rust_analyzer', {})
       vim.lsp.config('gopls', {})
       vim.lsp.config('vue_ls', {})
+      vim.lsp.config('ruff', {})
+      vim.lsp.config('basedpyright', {
+        settings = {
+          basedpyright = {
+            typeCheckingMode = 'basic',
+          },
+        },
+      })
 
       local servers = {
         'lua_ls',
@@ -161,6 +166,8 @@ return {
         'ts_ls',
         'rust_analyzer',
         'gopls',
+        'ruff',
+        'basedpyright',
       }
 
       vim.lsp.enable(servers)
