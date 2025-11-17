@@ -14,7 +14,10 @@ return {
           -- first returned string is the new search query
           -- second returned string are (optional) additional rg flags
           -- @return string, string?
-          -- e.g. hello -- -tts will search for hello strings in ts files
+          -- Examples:
+          -- hello -- -tts              -> search in .ts files (built-in type)
+          -- hello -- -g*.vue           -> search in .vue files (glob pattern)
+          -- hello -- -tts -g*.vue      -> search in both .ts and .vue files
           rg_glob_fn = function(query, opts)
             local regex, flags = query:match '^(.-)%s%-%-(.*)$'
             -- If no separator is detected will return the original query
