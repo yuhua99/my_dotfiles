@@ -4,6 +4,7 @@ declare -a tasks
 tasks=(
   "gitconfig"
   "nvim"
+  "helix"
   "tmux"
   "alacritty"
   "nushell"
@@ -24,6 +25,10 @@ gitconfig() {
 
 nvim() {
   CopyToHome "nvim" "$HOME/.config"
+}
+
+helix() {
+  CopyToHome "helix" "$HOME/.config"
 }
 
 tmux() {

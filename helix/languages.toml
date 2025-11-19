@@ -1,0 +1,15 @@
+[language-server.vue-language-server]
+command = "npx"
+args = ["@vue/language-server", "--stdio"]
+
+[language-server.typescript-language-server.config]
+plugins = [
+  { name = "@vue/typescript-plugin", location = "@vue/language-server", languages = ["vue"] }
+]
+
+[[language]]
+name = "vue"
+scope = "source.vue"
+injection-regex = "vue"
+file-types = ["vue"]
+language-servers = ["vue-language-server", "typescript-language-server"]
