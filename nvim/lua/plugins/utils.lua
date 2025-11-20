@@ -15,6 +15,18 @@ return {
     opts = {},
   },
 
+  -- color preview
+  {
+    'brenoprata10/nvim-highlight-colors',
+    event = 'BufReadPre',
+    opts = {
+      render = 'virtual',
+      virtual_symbol_prefix = ' ',
+      virtual_symbol_suffix = '',
+      virtual_symbol_position = 'eow',
+    },
+  },
+
   { -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
     event = { 'BufReadPost', 'BufNewFile' }, -- Load when opening files
