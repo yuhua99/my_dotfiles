@@ -17,13 +17,13 @@ return {
 
   -- color preview
   {
-    'brenoprata10/nvim-highlight-colors',
+    'catgoose/nvim-colorizer.lua',
     event = 'BufReadPre',
     opts = {
-      render = 'virtual',
-      virtual_symbol_prefix = ' ',
-      virtual_symbol_suffix = '',
-      virtual_symbol_position = 'eow',
+      user_default_options = {
+        mode = 'virtualtext',
+        virtualtext_inline = true,
+      },
     },
   },
 
