@@ -150,7 +150,6 @@ return {
       vim.lsp.config('ts_ls', ts_ls_config)
       vim.lsp.config('rust_analyzer', {})
       vim.lsp.config('gopls', {})
-      vim.lsp.config('vue_ls', {})
       vim.lsp.config('ruff', {})
       vim.lsp.config('basedpyright', {
         settings = {
@@ -162,7 +161,6 @@ return {
 
       local servers = {
         'lua_ls',
-        'vue_ls',
         'ts_ls',
         'rust_analyzer',
         'gopls',
