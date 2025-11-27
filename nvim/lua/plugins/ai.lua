@@ -161,34 +161,10 @@ return {
       },
       -- Some common usages with visual mode
       {
-        mapping_key_prefix .. 'e',
-        '<cmd>CodeCompanion /explain<cr>',
-        desc = 'Explain code',
-        mode = 'v',
-      },
-      {
-        mapping_key_prefix .. 'E',
-        '<cmd>CodeCompanion /english<cr>',
-        desc = 'English Review',
-        mode = 'v',
-      },
-      {
-        mapping_key_prefix .. 'f',
-        '<cmd>CodeCompanion /fix<cr>',
-        desc = 'Fix code',
-        mode = 'v',
-      },
-      {
         mapping_key_prefix .. 'l',
         '<cmd>CodeCompanion /lsp<cr>',
         desc = 'Explain LSP diagnostic',
         mode = { 'n', 'v' },
-      },
-      {
-        mapping_key_prefix .. 't',
-        '<cmd>CodeCompanion /tests<cr>',
-        desc = 'Generate unit test',
-        mode = 'v',
       },
       {
         mapping_key_prefix .. 'm',
@@ -200,31 +176,6 @@ return {
         mapping_key_prefix .. 'M',
         '<cmd>CodeCompanion /staged-commit<cr>',
         desc = 'Git commit message (staged)',
-      },
-      {
-        mapping_key_prefix .. 'd',
-        '<cmd>CodeCompanion /inline-doc<cr>',
-        desc = 'Inline document code',
-        mode = 'v',
-      },
-      { mapping_key_prefix .. 'D', '<cmd>CodeCompanion /doc<cr>', desc = 'Document code', mode = 'v' },
-      {
-        mapping_key_prefix .. 'r',
-        '<cmd>CodeCompanion /refactor<cr>',
-        desc = 'Refactor code',
-        mode = 'v',
-      },
-      {
-        mapping_key_prefix .. 'R',
-        '<cmd>CodeCompanion /review<cr>',
-        desc = 'Review code',
-        mode = 'v',
-      },
-      {
-        mapping_key_prefix .. 'n',
-        '<cmd>CodeCompanion /naming<cr>',
-        desc = 'Better naming',
-        mode = 'v',
       },
       -- Quick chat
       {
