@@ -86,6 +86,7 @@ return {
       -- Document existing key chains
       spec = {
         { '<leader>a', group = 'Ai' },
+        { '<leader>b', group = 'Buffer' },
         { '<leader>c', group = 'Code' },
         { '<leader>f', group = 'Find' },
         { '<leader>g', group = 'Git' },

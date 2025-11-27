@@ -24,5 +24,7 @@ return {
     { 'H', '<cmd> BufferLineCyclePrev <CR>', mode = 'n' },
     { 'L', '<cmd> BufferLineCycleNext <CR>', mode = 'n' },
     { '<leader>x', '<cmd> BufDel <CR>', desc = 'Close buffer', mode = 'n' },
+    { '<leader>bo', '<cmd> BufferLineCloseOthers <CR>', desc = 'Close all other buffers', mode = 'n' },
+    { '<leader>bx', '<cmd> BufDel <CR>', desc = 'Close buffer', mode = 'n' },
   },
 }
