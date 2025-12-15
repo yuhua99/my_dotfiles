@@ -219,6 +219,11 @@ return {
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
+
+        -- Performance: Disable for big files
+        disable = function(lang, buf)
+          return vim.b[buf].big_file == true
+        end,
       },
       indent = { enable = true, disable = { 'ruby' } },
     },

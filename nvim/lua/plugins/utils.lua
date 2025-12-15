@@ -29,6 +29,17 @@ return {
         virtualtext_inline = true,
       },
     },
+    -- Performance: Skip big files
+    config = function(_, opts)
+      require('colorizer').setup(opts)
+      vim.api.nvim_create_autocmd('BufReadPost', {
+        callback = function(args)
+          if vim.b[args.buf].big_file then
+            require('colorizer').detach_from_buffer(args.buf)
+          end
+        end,
+      })
+    end,
   },
 
   { -- Add indentation guides even on blank lines
@@ -38,6 +49,17 @@ return {
     -- See `:help ibl`
     main = 'ibl',
     opts = {},
+    -- Performance: Disable for big files
+    config = function()
+      require('ibl').setup {}
+      vim.api.nvim_create_autocmd('BufReadPost', {
+        callback = function(args)
+          if vim.b[args.buf].big_file then
+            require('ibl').setup_buffer(args.buf, { enabled = false })
+          end
+        end,
+      })
+    end,
   },
 
   -- Highlight todo, notes, etc in comments
