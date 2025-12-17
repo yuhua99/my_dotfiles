@@ -156,13 +156,7 @@ return {
       vim.lsp.config('rust_analyzer', {})
       vim.lsp.config('gopls', {})
       vim.lsp.config('ruff', {})
-      vim.lsp.config('basedpyright', {
-        settings = {
-          basedpyright = {
-            typeCheckingMode = 'basic',
-          },
-        },
-      })
+      vim.lsp.config('ty', {})
 
       local servers = {
         'lua_ls',
@@ -170,7 +164,7 @@ return {
         'rust_analyzer',
         'gopls',
         'ruff',
-        'basedpyright',
+        'ty',
       }
 
       vim.lsp.enable(servers)
