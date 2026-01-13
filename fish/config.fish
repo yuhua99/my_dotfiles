@@ -12,3 +12,7 @@ fish_add_path --global /usr/local/bin
 starship init fish | source
 zoxide init fish | source
 fnm env --use-on-cd --shell fish | source
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
