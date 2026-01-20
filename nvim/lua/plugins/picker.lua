@@ -36,6 +36,20 @@ return {
       { '<leader>fs', '<cmd>FzfLua grep_cword<cr>', desc = 'Search word under cursor' },
       { '<leader>fw', '<cmd>FzfLua live_grep<cr>', desc = 'Live grep' },
       { '<leader>ff', '<cmd>FzfLua files<cr>', desc = 'Open file picker' },
+      {
+        '<leader>fW',
+        function()
+          require('fzf-lua').live_grep { rg_opts = '-n --column --no-ignore' }
+        end,
+        desc = 'Live grep (no-ignore)',
+      },
+      {
+        '<leader>fF',
+        function()
+          require('fzf-lua').files { fd_opts = '--type f --hidden --follow --exclude .git --no-ignore' }
+        end,
+        desc = 'Files (no-ignore)',
+      },
       { '<leader>gs', '<cmd>FzfLua git_status<cr>', desc = 'Git status' },
       { '<leader>gc', '<cmd>FzfLua git_commits<cr>', desc = 'Git commits' },
       { '<leader>cR', '<cmd>FzfLua lsp_references<cr>', desc = 'Fzf references' },
