@@ -9,8 +9,6 @@ This repository contains my personal configuration files (dotfiles) for various 
 *   **Zellij:** Opinionated keymap with vi-style navigation.
 *   **Git:** Git configuration, including aliases and settings.
 *   **Alacritty:** Terminal emulator configuration.
-*   **Nushell:** Configuration for the Nu shell. (deprecated)
-*   **MCPHub:** Server configuration for the MCPHub Neovim plugin. (deprecated)
 *   **Starship:** Cross-shell prompt configuration.
 
 ## Prerequisites
@@ -20,7 +18,6 @@ This repository contains my personal configuration files (dotfiles) for various 
 *   **Zellij:** Install Zellij 0.40+ for the custom keybinds defined in `zellij/config.kdl`.
 *   **Neovim:** Requires a recent version of Neovim.
 *   **Alacritty:** Requires Alacritty terminal emulator.
-*   **Nushell:** Requires Nushell.
 *   **Starship:** Requires Starship to be installed.
 
 ## 🛠️ Installation

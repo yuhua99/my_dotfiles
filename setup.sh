@@ -7,9 +7,7 @@ tasks=(
   "helix"
   "tmux"
   "alacritty"
-  "nushell"
   "fish"
-  "mcphub"
   "starship"
   "zellij"
 )
@@ -40,17 +38,8 @@ alacritty() {
   CopyToHome "alacritty" "$HOME/.config"
 }
 
-nushell() {
-  CopyToHome "nushell" "$HOME/.config"
-}
-
 fish() {
   CopyToHome "fish" "$HOME/.config"
-}
-
-mcphub() {
-  CopyToHome "mcphub" "$HOME/.config"
-  echo "Remember to update the api key in servers.json file"
 }
 
 starship() {
