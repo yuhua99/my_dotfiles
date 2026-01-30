@@ -135,6 +135,7 @@ return {
         javascript = { 'prettier' },
         typescript = { 'prettier' },
         vue = { 'prettier' },
+        json = { 'prettier' },
       },
       formatters = {
         prettier = {
