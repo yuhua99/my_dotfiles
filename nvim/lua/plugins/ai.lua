@@ -15,6 +15,7 @@ return {
   },
   {
     'nvim-treesitter/nvim-treesitter',
+    main = 'nvim-treesitter.config',
     opts = { ensure_installed = { 'yaml', 'markdown' } },
   },
   {
