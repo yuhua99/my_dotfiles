@@ -36,5 +36,3 @@ This repository contains my personal configuration files (dotfiles) for various 
 ## Notes
 
 *   **Git:** Remember to change the `name` and `email` in `.gitconfig` to your own details.
-*   **Neovim:** This setup uses LazyVim. Refer to the LazyVim documentation for details on customization.
-*   **Zellij:** Starts in locked mode. Hit `Ctrl+a` to enter normal mode. `n`/`d` create panes (horizontal/vertical), `tab` switches focus, `[`/`]` break panes into new tabs, `f` toggles fullscreen, and `Ctrl+a` again returns to locked mode.

@@ -247,6 +247,78 @@ return {
     },
     keys = {
       {
+        ']h',
+        mode = { 'n' },
+        function()
+          if vim.wo.diff then
+            vim.cmd.normal { ']h', bang = true }
+          else
+            require('gitsigns').nav_hunk 'next'
+          end
+        end,
+        desc = 'Git next hunk',
+      },
+      {
+        '[h',
+        mode = { 'n' },
+        function()
+          if vim.wo.diff then
+            vim.cmd.normal { '[h', bang = true }
+          else
+            require('gitsigns').nav_hunk 'prev'
+          end
+        end,
+        desc = 'Git prev hunk',
+      },
+      {
+        '<leader>gr',
+        mode = { 'n', 'v' },
+        function()
+          local gs = require 'gitsigns'
+          local mode = vim.fn.mode()
+          if mode:match '[vV\22]' then
+            local l1 = vim.fn.line '.'
+            local l2 = vim.fn.line 'v'
+            gs.reset_hunk { math.min(l1, l2), math.max(l1, l2) }
+          else
+            gs.reset_hunk()
+          end
+        end,
+        desc = 'Git restore hunk',
+      },
+      {
+        '<leader>ga',
+        mode = { 'n', 'v' },
+        function()
+          local gs = require 'gitsigns'
+          local mode = vim.fn.mode()
+          if mode:match '[vV\22]' then
+            local l1 = vim.fn.line '.'
+            local l2 = vim.fn.line 'v'
+            gs.stage_hunk { math.min(l1, l2), math.max(l1, l2) }
+          else
+            gs.stage_hunk()
+          end
+        end,
+        desc = 'Git stage hunk',
+      },
+      {
+        '<leader>gu',
+        mode = { 'n', 'v' },
+        function()
+          local gs = require 'gitsigns'
+          local mode = vim.fn.mode()
+          if mode:match '[vV\22]' then
+            local l1 = vim.fn.line '.'
+            local l2 = vim.fn.line 'v'
+            gs.stage_hunk { math.min(l1, l2), math.max(l1, l2) }
+          else
+            gs.stage_hunk()
+          end
+        end,
+        desc = 'Git unstage hunk',
+      },
+      {
         '<leader>gb',
         mode = { 'n' },
         function()
