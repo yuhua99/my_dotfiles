@@ -16,3 +16,7 @@ fnm env --use-on-cd --shell fish | source
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# proto
+set -gx PROTO_HOME "$HOME/.proto";
+set -gx PATH "$PROTO_HOME/shims" "$PROTO_HOME/bin" $PATH;
