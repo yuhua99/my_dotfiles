@@ -32,3 +32,7 @@ right = ["selections", "primary-selection-length", "position", "position-percent
 [keys.normal]
 "S-h" = ":bprev"
 "S-l" = ":bnext"
+"C-h" = "jump_view_left"
+"C-l" = "jump_view_right"
+"C-j" = "jump_view_down"
+"C-k" = "jump_view_up"
