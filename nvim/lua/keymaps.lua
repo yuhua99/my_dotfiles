@@ -17,22 +17,20 @@ map('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 -- Oil file explorer
 map('n', '<leader>e', '<cmd>Oil<cr>', { desc = 'Open Oil file explorer' })
 
--- Keybinds to make split navigation easier.
--- C-h/C-l: seamless navigation between nvim splits and tmux panes.
--- When at the edge of nvim splits, falls through to tmux.
--- C-j/C-k: normal nvim window navigation only (not bound in tmux to avoid breaking Shift+Enter).
-local function tmux_navigate(direction, tmux_dir)
+-- Smart split/pane navigation with tmux fallthrough (Alt+hjkl)
+-- If at the edge of nvim splits, falls through to tmux pane switching
+local function navigate(dir, tmux_dir)
   local win = vim.api.nvim_get_current_win()
-  vim.cmd('wincmd ' .. direction)
+  vim.cmd('wincmd ' .. dir)
   if vim.api.nvim_get_current_win() == win then
     vim.fn.system('tmux select-pane -' .. tmux_dir)
   end
 end
 
-map('n', '<C-h>', function() tmux_navigate('h', 'L') end, { desc = 'Navigate left (vim/tmux)' })
-map('n', '<C-l>', function() tmux_navigate('l', 'R') end, { desc = 'Navigate right (vim/tmux)' })
-map('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-map('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+map('n', '<M-h>', function() navigate('h', 'L') end, { desc = 'Navigate left (vim/tmux)' })
+map('n', '<M-l>', function() navigate('l', 'R') end, { desc = 'Navigate right (vim/tmux)' })
+map('n', '<M-j>', function() navigate('j', 'D') end, { desc = 'Navigate down (vim/tmux)' })
+map('n', '<M-k>', function() navigate('k', 'U') end, { desc = 'Navigate up (vim/tmux)' })
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- map("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
