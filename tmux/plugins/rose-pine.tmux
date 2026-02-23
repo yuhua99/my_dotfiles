@@ -466,6 +466,11 @@ main() {
     # setw window-status-format "$window_status_format"
     # setw window-status-current-format "$window_status_current_format"
 
+    # Custom centered capsule windows (prefix-aware)
+    set status-justify "centre"
+    setw window-status-format "#[fg=$thm_overlay,bg=default]#[fg=$thm_subtle,bg=$thm_overlay] #I #W #[fg=$thm_overlay,bg=default]"
+    setw window-status-current-format "#[fg=$thm_iris,bg=default]#[fg=$thm_base,bg=$thm_iris,bold] #{?client_prefix,󰘳 ,}#I #W #[fg=$thm_iris,bg=default]"
+
     # tmux integrated modes
 
     setw clock-mode-colour "${thm_love}"
