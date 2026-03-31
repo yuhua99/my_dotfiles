@@ -147,6 +147,14 @@ local vue_plugin = {
   configNamespace = 'typescript',
 }
 
+vim.lsp.config('lua_ls', {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = { globals = { 'vim' } },
+    },
+  },
+})
 vim.lsp.config('ts_ls', {
   capabilities = capabilities,
   init_options = {
