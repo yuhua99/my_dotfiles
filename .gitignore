@@ -1,5 +1,4 @@
-nvim/lazyvim.json
-nvim/lazy-lock.json
+nvim/nvim-pack-lock.json
 helix/runtime
 .pi/agent/sessions/
 .pi/agent/auth.json
