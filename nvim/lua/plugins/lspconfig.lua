@@ -144,6 +144,7 @@ return {
       }
 
       local ts_ls_config = {
+        capabilities = capabilities,
         init_options = {
           plugins = {
             vue_plugin,
@@ -153,10 +154,11 @@ return {
       }
 
       vim.lsp.config('ts_ls', ts_ls_config)
-      vim.lsp.config('rust_analyzer', {})
-      vim.lsp.config('gopls', {})
-      vim.lsp.config('ruff', {})
-      vim.lsp.config('ty', {})
+      vim.lsp.config('rust_analyzer', { capabilities = capabilities })
+      vim.lsp.config('gopls', { capabilities = capabilities })
+      vim.lsp.config('ruff', { capabilities = capabilities })
+      vim.lsp.config('ty', { capabilities = capabilities })
+      vim.lsp.config('copilot', { capabilities = capabilities })
 
       local servers = {
         'lua_ls',
@@ -165,6 +167,7 @@ return {
         'gopls',
         'ruff',
         'ty',
+        'copilot',
       }
 
       vim.lsp.enable(servers)
