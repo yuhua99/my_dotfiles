@@ -74,6 +74,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('[d', vim.diagnostic.goto_prev, 'Previous diagnostic')
     map(']d', vim.diagnostic.goto_next, 'Next diagnostic')
     map('<leader>ce', vim.diagnostic.open_float, 'Show diagnostic')
+    map('<leader>cy', function()
+      local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+      local diags = vim.diagnostic.get(event.buf, { lnum = lnum })
+
+      if #diags == 0 then
+        vim.notify('No diagnostic on this line')
+        return
+      end
+
+      vim.fn.setreg('+', diags[1].message)
+      vim.notify('Diagnostic yanked')
+    end, 'Yank diagnostic')
 
     local client = vim.lsp.get_client_by_id(event.data.client_id)
     if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight, event.buf) then
