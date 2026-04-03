@@ -40,7 +40,13 @@ vim.keymap.set('n', mapping_key_prefix .. 's', function()
   end
 end, { desc = 'Sidekick Select CLI' })
 
-vim.keymap.set({ 'n', 'x' }, mapping_key_prefix .. 'p', function()
+vim.keymap.set('n', mapping_key_prefix .. 'p', function()
+  if ensure_sidekick() then
+    require('sidekick.cli').toggle { name = 'pi', focus = true }
+  end
+end, { desc = 'Sidekick Pi' })
+
+vim.keymap.set('x', mapping_key_prefix .. 'p', function()
   if ensure_sidekick() then
     require('sidekick.cli').prompt()
   end
