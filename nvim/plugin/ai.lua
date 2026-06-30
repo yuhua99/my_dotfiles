@@ -1,10 +1,5 @@
 local mapping_key_prefix = '<leader>a'
 
-require('copilot').setup {
-  suggestion = { enable = false },
-  panel = { enable = false },
-}
-
 -- Sidekick: lazy-loaded on first keymap use
 local sidekick_loaded = false
 local function ensure_sidekick()

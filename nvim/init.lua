@@ -81,12 +81,8 @@ vim.pack.add {
   'https://github.com/j-hui/fidget.nvim',
   { src = 'https://github.com/L3MON4D3/LuaSnip', version = vim.version.range '2.x' },
   'https://github.com/rafamadriz/friendly-snippets',
-  'https://github.com/giuxtaposition/blink-cmp-copilot',
   { src = 'https://github.com/saghen/blink.cmp', version = vim.version.range '1.x' },
   'https://github.com/neovim/nvim-lspconfig',
-
-  -- AI
-  'https://github.com/zbirenbaum/copilot.lua',
 }
 
 -- Colorscheme immediately after load

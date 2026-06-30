@@ -11,9 +11,7 @@ A modern, performance-focused Neovim configuration built on top of [kickstart-mo
 - **2-Space Indentation**: Consistent formatting across all file types
 
 ### 🤖 AI-Powered Development
-- **GitHub Copilot**: Advanced code completion and suggestions
-- **CodeCompanion**: AI chat interface with Claude Sonnet 4 integration
-- **Smart Completion**: Blink.cmp with Copilot integration for modern autocompletion
+- **Smart Completion**: Blink.cmp for modern autocompletion
 - **Custom AI Prompts**: Built-in prompts for code explanation, refactoring, testing, and more
 
 ### 🔍 Enhanced Navigation & Search
@@ -45,7 +43,7 @@ nvim/
 │   ├── lazy-bootstrap.lua   # Lazy.nvim setup
 │   ├── lazy-plugins.lua     # Plugin loading configuration
 │   └── plugins/             # Modular plugin configurations
-│       ├── ai.lua           # Copilot & CodeCompanion setup
+│       ├── ai.lua           # Sidekick CLI setup
 │       ├── bufferline.lua   # Buffer management
 │       ├── editor.lua       # Core editing plugins (completion, formatting, etc.)
 │       ├── lspconfig.lua    # Language server configuration
@@ -111,11 +109,6 @@ nvim/
 - **No Swapfiles**: Disabled for cleaner workspace
 
 ### Plugin Highlights
-
-#### AI Integration
-- **Copilot**: GitHub's AI pair programmer with suggestion/panel disabled (uses completion instead)
-- **CodeCompanion**: Chat interface using Claude Sonnet 4 through Copilot adapter
-- **Render Markdown**: Beautiful markdown rendering in AI chat buffers
 
 #### Completion System
 - **Blink.cmp**: Modern completion engine with fuzzy matching
