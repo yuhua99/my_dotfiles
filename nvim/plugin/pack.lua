@@ -19,3 +19,11 @@ vim.keymap.set('n', '<leader>ps', function()
   vim.pack.update(nil, { offline = true })
 end, { desc = 'Plugins: status' })
 vim.keymap.set('n', '<leader>pc', pack_clean, { desc = 'Plugins: clean' })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'nvim-pack',
+  callback = function(ev)
+    vim.bo[ev.buf].buflisted = false
+    vim.keymap.set('n', 'q', '<Cmd>close<CR>', { buffer = ev.buf, nowait = true })
+  end,
+})
