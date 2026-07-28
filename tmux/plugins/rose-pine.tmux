@@ -246,7 +246,7 @@ main() {
 
     # Changes the icon / character that goes between each window's name in the bar
     local window_status_separator
-    window_status_separator="$(get_tmux_option "@rose_pine_window_status_separator" "  ")"
+    window_status_separator="$(get_tmux_option "@rose_pine_window_status_separator" " ")"
 
     # This setting does nothing by itself, it enables the 2 below it to toggle the simplified bar
     local prioritize_windows
