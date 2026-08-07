@@ -43,7 +43,6 @@ nvim/
 │   ├── lazy-bootstrap.lua   # Lazy.nvim setup
 │   ├── lazy-plugins.lua     # Plugin loading configuration
 │   └── plugins/             # Modular plugin configurations
-│       ├── ai.lua           # Sidekick CLI setup
 │       ├── bufferline.lua   # Buffer management
 │       ├── editor.lua       # Core editing plugins (completion, formatting, etc.)
 │       ├── lspconfig.lua    # Language server configuration

@@ -10,12 +10,6 @@ require('blink.cmp').setup {
     ['<Tab>'] = {
       'snippet_forward',
       function()
-        local ok, sidekick = pcall(require, 'sidekick')
-        if ok then
-          return sidekick.nes_jump_or_apply()
-        end
-      end,
-      function()
         return vim.lsp.inline_completion.get()
       end,
       'select_next',
