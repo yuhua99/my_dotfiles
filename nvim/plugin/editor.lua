@@ -154,7 +154,11 @@ require('which-key').setup {
 }
 
 -- Flash
-require('flash').setup {}
+require('flash').setup {
+  modes = {
+    char = { enabled = false },
+  },
+}
 vim.api.nvim_set_hl(0, 'FlashLabel', { link = 'Special' })
 
 -- Treesitter (new main-branch API for Neovim 0.12+)
@@ -238,10 +242,11 @@ vim.keymap.set('n', 'gR', '<cmd>FzfLua lsp_references<CR>', { desc = 'Go to refe
 vim.keymap.set('n', 'gi', '<cmd>FzfLua lsp_implementations<CR>', { desc = 'Go to implementation' })
 
 -- Flash
-vim.keymap.set({ 'n', 'x', 'o' }, 'gs', function()
+vim.keymap.set({ 'n', 'x', 'o' }, 'f', '<Nop>', { desc = 'Disabled' })
+vim.keymap.set({ 'n', 'x', 'o' }, 'fl', function()
   require('flash').jump()
 end, { desc = 'Flash' })
-vim.keymap.set({ 'n', 'x', 'o' }, 'gS', function()
+vim.keymap.set({ 'n', 'x', 'o' }, 'fL', function()
   require('flash').treesitter()
 end, { desc = 'Flash Treesitter' })
 
