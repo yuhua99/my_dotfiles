@@ -14,10 +14,12 @@ local function pack_clean()
   end
 end
 
-vim.keymap.set('n', '<leader>pu', vim.pack.update, { desc = 'Plugins: update' })
-vim.keymap.set('n', '<leader>ps', function()
-  vim.pack.update(nil, { offline = true })
-end, { desc = 'Plugins: status' })
+require('pack_ui').setup({
+  keymaps = false,
+})
+
+vim.keymap.set('n', '<leader>ps', '<cmd>PackStatus<cr>', { desc = 'Plugins: status' })
+vim.keymap.set('n', '<leader>pu', '<cmd>PackUpdate<cr>', { desc = 'Plugins: update' })
 vim.keymap.set('n', '<leader>pc', pack_clean, { desc = 'Plugins: clean' })
 
 vim.api.nvim_create_autocmd('FileType', {

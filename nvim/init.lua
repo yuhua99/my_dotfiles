@@ -52,6 +52,7 @@ vim.api.nvim_create_autocmd('PackChanged', {
 vim.pack.add {
   -- UI
   { src = 'https://github.com/rose-pine/neovim', name = 'rose-pine' },
+  'https://github.com/jtprogru/pack-ui.nvim',
 
   -- Base
   'https://github.com/NMAC427/guess-indent.nvim',
